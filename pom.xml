@@ -135,10 +135,9 @@
   </modules>
   <repositories>
     <repository>
-      <id>codehaus</id>
-      <name>Codehaus maven repository</name>
-      <url>http://dist.codehaus.org/</url>
-      <layout>legacy</layout>
+      <id>mvn</id>
+      <name>MVN repository</name>
+      <url>https://repo1.maven.org/maven2/</url>
     </repository>
     <repository>
       <id>apache-snapshots</id>

@@ -10,9 +10,9 @@
   <version>1.2.6</version>
   <repositories>
     <repository>
-      <id>activemq</id>
-      <name>ActiveMQ</name>
-      <url>http://people.apache.org/~chirino/incubator-activemq-4.0/maven2/</url>
+      <id>mvn</id>
+      <name>MVN repository</name>
+      <url>https://repo1.maven.org/maven2/</url>
     </repository>
   </repositories>
   <dependencies>
@@ -53,9 +53,9 @@
       <version>1.1-rc4</version>
     </dependency>
     <dependency>
-      <groupId>incubator-activemq</groupId>
+      <groupId>org.apache.activemq</groupId>
       <artifactId>activemq-core</artifactId>
-      <version>4.0</version>
+      <version>4.1.2</version>
     </dependency>
     <dependency>
       <groupId>geronimo-spec</groupId>

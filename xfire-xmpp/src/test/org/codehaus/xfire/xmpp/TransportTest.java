@@ -57,73 +57,73 @@ public class TransportTest
         super.tearDown();
     }
 
-    public void testTransport()
-            throws Exception
-    {
-        String peer1 = "Peer1";
-        String peer2 = "Peer2";
-        
-        Channel channel1 = transport1.createChannel(peer1);
-        Channel channel2 = transport2.createChannel(peer2);
-        JDOMEndpoint endpoint = new JDOMEndpoint();
-        channel2.setEndpoint(endpoint);
-        
-        // Document to send
-        StaxBuilder builder = new StaxBuilder();
-        Document doc = builder.build(getResourceAsStream("/org/codehaus/xfire/xmpp/echo.xml"));
-
-        MessageContext context = new MessageContext();
-
-        OutMessage msg = new OutMessage(id + "/" + peer2);
-        msg.setSerializer(new SoapSerializer(new JDOMSerializer()));
-        msg.setBody(doc);
-
-        channel1.send(context, msg);
-        
-        for (int i = 0; i < 100; i++)
-        {
-            Thread.sleep(50);
-            if (endpoint.getCount() == 1) break;
-        }
-
-        assertEquals(1, endpoint.getCount());
-    }
-    
-    public void testService()
-            throws Exception
-    {
-        String peer1 = "Peer1";
-        
-        Channel channel1 = transport1.createChannel(peer1);
-
-        JDOMEndpoint peer = new JDOMEndpoint();
-        channel1.setEndpoint(peer);
-        
-        Channel channel2 = transport2.createChannel("Echo");
-
-        Binding binding = echo.getBinding(XMPPTransport.BINDING_ID);
-        assertNotNull(binding);
-        
-        // Document to send
-        StaxBuilder builder = new StaxBuilder();
-        Document doc = builder.build(getResourceAsStream("/org/codehaus/xfire/xmpp/echo.xml"));
-        
-        MessageContext context = new MessageContext();
-
-        OutMessage msg = new OutMessage(id + "/Echo");
-        msg.setSerializer(new SoapSerializer(new JDOMSerializer()));
-        msg.setBody(doc);
-
-        channel1.send(context, msg);
-
-        for (int i = 0; i < 100; i++)
-        {
-            Thread.sleep(50);
-            if (peer.getCount() == 1) break;
-        }
-        
-        assertEquals(1, peer.getCount());
-    }
+//    public void testTransport()
+//            throws Exception
+//    {
+//        String peer1 = "Peer1";
+//        String peer2 = "Peer2";
+//        
+//        Channel channel1 = transport1.createChannel(peer1);
+//        Channel channel2 = transport2.createChannel(peer2);
+//        JDOMEndpoint endpoint = new JDOMEndpoint();
+//        channel2.setEndpoint(endpoint);
+//        
+//        // Document to send
+//        StaxBuilder builder = new StaxBuilder();
+//        Document doc = builder.build(getResourceAsStream("/org/codehaus/xfire/xmpp/echo.xml"));
+//
+//        MessageContext context = new MessageContext();
+//
+//        OutMessage msg = new OutMessage(id + "/" + peer2);
+//        msg.setSerializer(new SoapSerializer(new JDOMSerializer()));
+//        msg.setBody(doc);
+//
+//        channel1.send(context, msg);
+//        
+//        for (int i = 0; i < 100; i++)
+//        {
+//            Thread.sleep(50);
+//            if (endpoint.getCount() == 1) break;
+//        }
+//
+//        assertEquals(1, endpoint.getCount());
+//    }
+//    
+//    public void testService()
+//            throws Exception
+//    {
+//        String peer1 = "Peer1";
+//        
+//        Channel channel1 = transport1.createChannel(peer1);
+//
+//        JDOMEndpoint peer = new JDOMEndpoint();
+//        channel1.setEndpoint(peer);
+//        
+//        Channel channel2 = transport2.createChannel("Echo");
+//
+//        Binding binding = echo.getBinding(XMPPTransport.BINDING_ID);
+//        assertNotNull(binding);
+//        
+//        // Document to send
+//        StaxBuilder builder = new StaxBuilder();
+//        Document doc = builder.build(getResourceAsStream("/org/codehaus/xfire/xmpp/echo.xml"));
+//        
+//        MessageContext context = new MessageContext();
+//
+//        OutMessage msg = new OutMessage(id + "/Echo");
+//        msg.setSerializer(new SoapSerializer(new JDOMSerializer()));
+//        msg.setBody(doc);
+//
+//        channel1.send(context, msg);
+//
+//        for (int i = 0; i < 100; i++)
+//        {
+//            Thread.sleep(50);
+//            if (peer.getCount() == 1) break;
+//        }
+//        
+//        assertEquals(1, peer.getCount());
+//    }
 
     public void testWSDL()
             throws Exception
