@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project default="jar" name="xfire-jaxb2" basedir=".">
+
+    <property name="java.source.version" value="1.5"/>
+    <property name="java.target.version" value="1.5"/>
+
+    <import file="../build-common.xml"/>
+
+    <target name="get-deps" depends="xfire.get-deps">
+        <get-dep artifact="jaxb-xjc" version="2.0.1" group="com.sun.xml.bind"/>
+        <get-dep artifact="jaxb-impl" version="2.0.1" group="com.sun.xml.bind"/>
+        <get-dep artifact="jaxb-api" version="2.0" group="javax.xml"/>
+    </target>
+    
+    <path id="module.classpath">
+        <fileset dir="..">
+            <include name="xfire-core/target/*.jar"/>
+            <include name="xfire-aegis/target/*.jar"/>
+            <include name="xfire-annotations/target/*.jar"/>
+            <include name="xfire-java5/target/*.jar"/>
+        </fileset>
+        <fileset dir="target/lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="init" depends="xfire.init">
+        <check-dep module="xfire-core"/>
+        <check-dep module="xfire-aegis"/>
+        <check-dep module="xfire-annotations"/>
+        <check-dep module="xfire-java5"/>
+    </target>
+    
+    <target name="internal-test" depends="get-deps,xjc,xfire.internal-test" />
+
+    <target name="xjc" depends="init">
+        <taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask" classpathref="build.classpath"/>
+
+        <mkdir dir="${target.dir}/generated-test"/>
+        <mkdir dir="${testclassesdir}"/>
+
+        <xjc target="${target.dir}/generated-test">
+            <schema dir="src/test-schemas" includes="*.xsd"/>
+        </xjc>
+        <javac destdir="${testclassesdir}" deprecation="true" debug="true" optimize="false" excludes="**/package.html">
+          <src>
+            <pathelement location="${target.dir}/generated-test" />
+          </src>
+          <classpath refid="build.classpath" />
+        </javac>
+    </target>
+
+
+</project>

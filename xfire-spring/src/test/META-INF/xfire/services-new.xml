@@ -1,0 +1,49 @@
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+
+  <xfire>
+    <inHandlers>
+      <handler
+        handlerClass="org.codehaus.xfire.addressing.AddressingInHandler">
+      </handler>
+    </inHandlers>
+  </xfire>
+
+  <service>
+    <name>Echo</name>
+    <serviceClass>org.codehaus.xfire.test.Echo</serviceClass>
+    <implementationClass>
+      org.codehaus.xfire.test.EchoImpl
+    </implementationClass>
+    <properties>
+      <property key="wsdl.generation.disabled">true</property>
+      <property key="foo">bar</property>
+      <property key="cheese">baz</property>
+    </properties>
+    <wsdlURL>classpath:org/codehaus/xfire/spring/remoting/echo.wsdl</wsdlURL>
+  </service>
+
+  <service>
+    <name>Echo1</name>
+    <namespace>urn:Echo</namespace>
+    <style>wrapped</style>
+    <use>literal</use>
+    <serviceClass>org.codehaus.xfire.test.EchoImpl</serviceClass>
+
+    <bindings>
+  	  <soap12Binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/"/>
+  	</bindings>
+  	
+    <inHandlers>
+      <handler handlerClass="org.codehaus.xfire.addressing.AddressingInHandler">
+		  <before>
+			<handlerName handler="costam" />  
+		  </before>
+      </handler>
+    </inHandlers>
+
+    <outHandlers>
+      <handler handlerClass="org.codehaus.xfire.addressing.AddressingOutHandler" />
+    </outHandlers>
+  </service>
+
+</beans>

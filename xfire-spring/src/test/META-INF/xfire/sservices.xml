@@ -1,0 +1,144 @@
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+  <xfire>
+  	<inHandlers>
+  		<handler handlerClass="org.codehaus.xfire.spring.TestHandler"/>
+  	</inHandlers>
+  	<outHandlers>
+  		<handler handlerClass="org.codehaus.xfire.spring.TestHandler"/>
+  	</outHandlers>
+  	<faultHandlers>
+  		<handler handlerClass="org.codehaus.xfire.spring.TestHandler"/>
+  	</faultHandlers>
+  </xfire>
+  
+  <service>
+    <name>EchoNoWSDL</name>
+    <serviceClass>org.codehaus.xfire.test.EchoImpl</serviceClass>
+    <serviceBean>#EchoBean</serviceBean>
+    <properties>
+  		<property key="disable.wsdl" >true</property>
+  	</properties>
+  </service>
+
+  <!--  service>
+    <name>EchoWithWSDL</name>
+    <serviceClass>org.codehaus.xfire.test.Echo</serviceClass>
+    <implementationClass>
+      org.codehaus.xfire.test.EchoImpl
+    </implementationClass>
+    <wsdlURL>classpath:org/codehaus/xfire/spring/remoting/echo.wsdl</wsdlURL>
+  </service  -->
+  
+  
+  <service xmlns:t="urn:my:namespace">
+  	<name>testservice</name>
+  	<serviceClass>org.codehaus.xfire.spring.TestService</serviceClass>
+  	<implementationClass>
+  		org.codehaus.xfire.spring.TestServiceImpl</implementationClass>
+  	<namespace>urn:my:namespace</namespace>
+  	<serviceFactory>org.codehaus.xfire.spring.config.TestServiceFactory</serviceFactory>
+  	<!-- serviceFactory>#commons-attributes</serviceFactory -->
+  	<style>wrapped</style>
+  	<use>literal</use>
+  	<scope>session</scope>
+  	
+  	<bindings>
+  	  <soap12Binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/">
+  	    <endpoints>
+  	      <endpoint url="http://localhost/TestService" name="t:TestServicePort"/>
+  	    </endpoints>
+  	  </soap12Binding>
+  	</bindings>
+  	
+  	<properties>
+  		<property key="myKey" >value</property>
+  		<property key="myKey1" >value1</property>
+        <property key="overrideTypesList" >
+             <list xmlns="">
+              <value>org.codehaus.xfire.test.Echo</value>
+            </list>
+      </property>
+  	</properties>
+  	
+  	<inHandlers>
+  		<handler handlerClass="org.codehaus.xfire.spring.TestHandler" >	
+		  <before>
+			<handlerName handler="costam" />  
+			  <handlerName handler="costam2" />  
+		  </before>
+		  <after>
+			<handlerName handler="costam" />  
+		  </after>
+	     </handler>
+  	</inHandlers>
+  </service>
+
+  
+  
+  <service>
+    <name>EchoWithJustImpl</name>
+    <serviceClass>org.codehaus.xfire.test.EchoImpl</serviceClass>
+    <serviceBean>#EchoBean</serviceBean>
+  </service>
+  
+  <service>
+    <name>EchoWithBean</name>
+    <serviceClass>org.codehaus.xfire.test.Echo</serviceClass>
+    <serviceBean>#EchoBean</serviceBean>
+    <bindings>
+      <soap12Binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/"/>
+    </bindings>
+  </service>
+
+  <bean name="EchoBean" class="org.codehaus.xfire.test.EchoImpl"/>
+  
+  <service>
+    <name>EchoWithBeanNoServiceClass</name>
+    <serviceBean>#EchoBean</serviceBean>
+  </service>
+
+  <service id="EchoWithServiceFactory">
+    <name>EchoWithServiceFactory</name>
+    <serviceBean>#EchoBean</serviceBean>
+    <serviceFactory>org.codehaus.xfire.spring.config.CustomServiceFactory</serviceFactory>
+  </service>
+  
+  <service id="EchoWithServiceFactoryAndWhitespace">
+    <name>EchoWithServiceFactory</name>
+    <serviceBean>#EchoBean</serviceBean>
+    <serviceFactory>
+      org.codehaus.xfire.spring.config.CustomServiceFactory
+    </serviceFactory>
+  </service>
+  
+  <service id="EchoWithBeanServiceFactory">
+    <name>EchoWithBeanServiceFactory</name>
+    <serviceBean>#EchoBean</serviceBean>
+    <serviceFactory>#beanServiceFactory</serviceFactory>
+  </service>
+  
+  <bean id="beanServiceFactory" class="org.codehaus.xfire.spring.config.CustomServiceFactory"/>
+  
+  <service>
+    <name>EchoWithSchemas</name>
+    <serviceBean>#EchoBean</serviceBean>
+    <schemas>
+      <schema>src/test-schemas/test.xsd</schema>
+    </schemas>
+  </service>
+
+  <bean name="EchoBean" class="org.codehaus.xfire.test.EchoImpl"/>
+  
+  <service id="EchoWithInvoker">
+    <name>EchoWithInvoker</name>
+    <serviceClass>org.codehaus.xfire.test.Echo</serviceClass>
+    <invoker>
+      <bean class="org.codehaus.xfire.service.invoker.ObjectInvoker" xmlns="">
+        <constructor-arg>
+          <bean class="org.codehaus.xfire.service.invoker.RequestScopePolicy"/>
+        </constructor-arg>
+      </bean>
+    </invoker>
+  </service>
+  
+</beans>

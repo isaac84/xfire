@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<import resource="classpath:org/codehaus/xfire/spring/xfire.xml" />
+
+	<bean id="hello.client"
+		class="org.codehaus.xfire.spring.remoting.XFireClientFactoryBean">
+
+		<property name="serviceClass"
+			value="org.something.services.hello.ws.HelloService" />
+        <property name="wsdlDocumentUrl"
+            value="hello.wsdl" />
+
+		<property name="url" value="http://localhost:8191/HelloService" />
+
+		<property name="serviceFactory">
+			<bean
+				class="org.codehaus.xfire.jaxws.JAXWSServiceFactory">
+				<constructor-arg index="0">
+					<ref bean="xfire.transportManager" />
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+</beans>

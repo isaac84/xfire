@@ -1,0 +1,18 @@
+[Building XFire]
+Due to the many preferences of people regarding build systems,
+we seem to have ended up with 3: Ant, Maven 1.x, and Maven 2.x.
+Here is a quick lineup of what works and what doesn't with each 
+build:
+
+Maven 2.0.2+:
+- Jars, bundled jar and distribution work correctly.
+
+Ant:
+- This build is the *least supported*, but will work most of the 
+  time. However, not all modules currently have ant builds. Use
+  at your own risk.
+  
+[Deploying Snapshots and Distributions]
+This should install the xfire jars and distribution to the Maven 
+1 and 2 repositories:
+$ mvn -Duser.name=yourusername deploy

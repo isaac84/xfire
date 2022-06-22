@@ -1,0 +1,6 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+ <env:Header/>
+ <env:Body xmlns:ns="urn:Doc">
+   <ns:bleh>bleh</ns:bleh>
+ </env:Body>
+</env:Envelope>

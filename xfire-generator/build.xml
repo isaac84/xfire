@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <target name="wsgen">
+
+    <delete dir="${basedir}/target/test-services"/>
+    <mkdir dir="${basedir}/target/test-services"/>
+    <delete dir="${basedir}/target/xmlbeans-classes"/>
+    <mkdir dir="${basedir}/target/xmlbeans-classes"/>
+  	  
+    <java classname="org.apache.xmlbeans.impl.tool.SchemaCompiler"
+          classpathref="maven.test.classpath"
+          fork="true">
+      <arg value="-d"/>
+      <arg value="${basedir}/target/xmlbeans-classes"/>
+      <arg value="${basedir}/src/wsdl/echo.wsdl"/>
+      <arg value="${basedir}/src/wsdl/echoWrapped.wsdl"/>
+      <arg value="${basedir}/src/wsdl/globalweather-twoporttypes.wsdl"/>
+    	
+    </java>
+  	
+
+  	<copy todir="${basedir}/target/test-classes">
+      <fileset dir="${basedir}/target/xmlbeans-classes/"/>
+    </copy>
+
+    <path id="wsgen.classpath">
+      <path refid="maven.test.classpath" />
+      <pathelement location="${basedir}/target/test-services"/>
+      <pathelement location="${basedir}/target/xmlbeans-classes"/>
+    </path>
+  	
+    <taskdef name="wsgen" classname="org.codehaus.xfire.gen.WsGenTask" 
+         classpathref="wsgen.classpath"/>
+  		
+    <wsgen outputDirectory="${basedir}/target/test-services"
+      wsdl="${basedir}/src/wsdl/echo.wsdl" package="jsr181.echo.bare"
+      binding="xmlbeans" overwrite="true"/>
+
+    <wsgen outputDirectory="${basedir}/target/test-services"
+      wsdl="${basedir}/src/wsdl/echoWrapped.wsdl"
+      package="jsr181.echo.wrapped" binding="xmlbeans" overwrite="true" />
+
+  	 <wsgen outputDirectory="${basedir}/target/test-services"
+  	      wsdl="${basedir}/src/wsdl/echo-dualout.wsdl"
+  	      package="org.codehaus.xfire.generator.dualout" overwrite="true" />
+    	
+    <wsgen outputDirectory="${basedir}/target/test-services"
+      wsdl="${basedir}/src/wsdl/globalweather-twoporttypes.wsdl"
+      package="jsr181.echo.globalweather" binding="xmlbeans" overwrite="true"/>
+
+    <!-- JAXB -->
+    <wsgen outputDirectory="${basedir}/target/test-services"
+      wsdl="${basedir}/src/wsdl/globalweather.wsdl"
+      package="jsr181.jaxb.globalweather"  overwrite="true" />
+
+    <wsgen outputDirectory="${basedir}/target/test-services"
+      wsdl="${basedir}/src/wsdl/oneway.wsdl"
+      package="jsr181.jaxb.oneway" overwrite="true"/>
+
+    <wsgen outputDirectory="${basedir}/target/auth-service"
+      wsdl="${basedir}/src/wsdl/auth.wsdl" 
+      package="jsr181.jaxb.auth" 
+      overwrite="true"/>
+
+    <wsgen outputDirectory="${basedir}/target/test-services"
+      wsdl="${basedir}/src/wsdl/echo-rpclit.wsdl" 
+      package="org.codehaus.xfire.generator.rpclit" 
+      overwrite="true"/>
+
+    <wsgen outputDirectory="${basedir}/target/test-services"
+      wsdl="${basedir}/src/wsdl/anytype.wsdl"
+      overwrite="true"/>
+
+    <wsgen outputDirectory="${basedir}/target/test-services"
+      wsdl="${basedir}/src/wsdl/geoip.wsdl"
+      overwrite="true"/>
+  </target>
+</project>

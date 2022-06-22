@@ -1,0 +1,17 @@
+# build.properties template, the one where your properties goes. 
+# build.properties is in .cvsignore list, so it your own file only.
+#
+# Version: $Id: build.properties.template 399 2005-05-25 16:23:16Z juze $
+
+### Includes Java 5 modules or not ###
+xfire.java5=false or true
+
+### Artifact upload ###
+maven.repo.codehaus.username=YOUR_BEAVER_LOGIN
+maven.repo.codehaus.privatekey=${user.home}/YOUR_BEAVER_OPENSSH_PRIVATE_KEY
+maven.repo.codehaus.passphrase=YOUR_BEAVER_OPENSSH_PRIVATE_KEY_PASSWORD (If you have).
+
+### Maven Generated Site Deploy ###
+maven.username=YOUR_BEAVER_LOGIN
+#maven.scp.executable=pscp
+#maven.ssh.executable=plink

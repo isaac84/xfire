@@ -1,0 +1,10 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+ <env:Body>
+  <m:getAccountStatus xmlns:m="http://xfire.codehaus.org/">
+   <m:in0 xmlns:m="http://xfire.codehaus.org/jibx">Dan</m:in0>
+   <m:Account xmlns:m="http://xfire.codehaus.org/jibx"> 
+     <m:accountNo>123</m:accountNo>
+   </m:Account>
+  </m:getAccountStatus>
+ </env:Body>
+</env:Envelope>

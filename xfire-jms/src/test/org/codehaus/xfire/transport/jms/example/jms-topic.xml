@@ -1,0 +1,40 @@
+<!-- START SNIPPET: simple -->
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+
+  <!-- 
+    Register the JMS transport. Note: this needs to happen *before* we
+    create our service.
+    -->
+  <xfire>
+    <transports>
+      <bean id="jmsTransport" 
+            class="org.codehaus.xfire.transport.jms.JMSTransport" 
+            xmlns="http://xbean.org/schemas/spring/1.0">
+        <constructor-arg ref="xfire"/>
+        <constructor-arg ref="connectionFactory"/>
+      </bean>
+    </transports>
+  </xfire>
+
+  <service xmlns:e="urn:Echo">
+    <name>Echo</name>
+    <serviceClass>org.codehaus.xfire.test.Echo</serviceClass>
+    <implementationClass>org.codehaus.xfire.test.EchoImpl</implementationClass>
+    <bindings>
+      <soap11Binding name="e:EchoJMSBinding" transport="urn:xfire:transport:jms">
+        <endpoints>
+          <endpoint name="e:EchoJMSEndpoint" url="jms://GenericTopic?topic=Echo" />
+        </endpoints>
+      </soap11Binding>
+    </bindings>
+  </service>
+     
+  <bean id="connectionFactory" 
+        class="org.apache.activemq.ActiveMQConnectionFactory"
+        singleton="true"
+        xmlns="http://xbean.org/schemas/spring/1.0/">
+    <constructor-arg value="vm://localhost?broker.persistent=false" type="java.lang.String"/>
+  </bean>
+  
+</beans>
+<!-- END SNIPPET: simple -->

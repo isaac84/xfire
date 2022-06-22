@@ -1,0 +1,179 @@
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+  <!-- START SNIPPET: utpp -->
+  <!--  =============  User Token with Plain Pasword  ============= -->
+  <service>
+  
+    <!--  -->
+    <name>BookServiceUTPP</name>
+    <namespace>http://xfire.codehaus.org/BookService</namespace>
+    <serviceClass>org.codehaus.xfire.demo.BookService</serviceClass>
+    <inHandlers>
+      <handler handlerClass="org.codehaus.xfire.util.dom.DOMInHandler" />
+      <bean class="org.codehaus.xfire.security.wss4j.WSS4JInHandler" xmlns="">
+        <property name="properties">
+        
+        <map xmlns="" >
+          <entry key="passwordCallbackRef" xmlns="">
+             <bean xmlns="" class="org.codehaus.xfire.demo.PasswordHandler" id="passHandler" name="passHandler"/>
+         </entry>
+        <entry key="action" value="UsernameToken" />
+   </map>
+        
+          <!--  props>
+            <prop key="action">UsernameToken</prop>
+            <prop key="passwordCallbackClass">org.codehaus.xfire.demo.PasswordHandler</prop>
+          </props -->
+        </property>
+      </bean>
+      <handler handlerClass="org.codehaus.xfire.demo.ValidateUserTokenHandler" />
+    </inHandlers>
+  </service>
+  <!-- END SNIPPET: utpp -->
+
+  <!-- START SNIPPET: uthp -->
+  <!--  ============= User Token with Hashed Password   ============= -->
+  <service>
+    <name>BookServiceUTHP</name>
+    <namespace>http://xfire.codehaus.org/BookService</namespace>
+    <serviceClass>org.codehaus.xfire.demo.BookService</serviceClass>
+    <inHandlers>
+      <handler handlerClass="org.codehaus.xfire.util.dom.DOMInHandler" />
+      <bean class="org.codehaus.xfire.security.wss4j.WSS4JInHandler" xmlns="">
+        <property name="properties">
+          <props>
+            <prop key="action">UsernameToken</prop>
+            <prop key="passwordCallbackClass">org.codehaus.xfire.demo.PasswordHandler</prop>
+          </props>
+        </property>
+      </bean>
+      <handler handlerClass="org.codehaus.xfire.demo.ValidateUserTokenHandler" />
+    </inHandlers>
+  </service>
+  <!-- END SNIPPET: uthp -->
+
+  <!-- START SNIPPET: encryption -->
+  <!--  ============= Encryption   ============= -->
+  <service>
+    <name>BookServiceENC</name>
+    <namespace>http://xfire.codehaus.org/BookService</namespace>
+    <serviceClass>org.codehaus.xfire.demo.BookService</serviceClass>
+
+    <inHandlers>
+      <handler handlerClass="org.codehaus.xfire.util.dom.DOMInHandler" />
+      <bean class="org.codehaus.xfire.security.wss4j.WSS4JInHandler" xmlns="">
+        <property name="properties">
+          <props>
+            <prop key="action">Encrypt</prop>
+            <prop key="decryptionPropFile">META-INF/xfire/insecurity_enc.properties</prop>
+            <prop key="passwordCallbackClass">org.codehaus.xfire.demo.PasswordHandler</prop>
+          </props>
+        </property>
+      </bean>
+    </inHandlers>
+  </service>
+  <!-- END SNIPPET: encryption -->
+
+  <!-- START SNIPPET: time -->
+  <!--  ============= TimeStamp  ============= -->
+  <service>
+    <name>BookServiceTS</name>
+    <namespace>http://xfire.codehaus.org/BookService</namespace>
+    <serviceClass>org.codehaus.xfire.demo.BookService</serviceClass>
+
+    <inHandlers>
+      <handler handlerClass="org.codehaus.xfire.util.dom.DOMInHandler" />
+      <bean class="org.codehaus.xfire.security.wss4j.WSS4JInHandler" xmlns="">
+        <property name="properties">
+          <props>
+            <prop key="action">Timestamp</prop>
+          </props>
+        </property>
+      </bean>
+    </inHandlers>
+  </service>
+  <!-- END SNIPPET: time -->
+
+  <!-- START SNIPPET: sig -->
+  <!--  ============= Signature  ============= -->
+  <service>
+    <name>BookServiceSign</name>
+    <namespace>http://xfire.codehaus.org/BookService</namespace>
+    <serviceClass>org.codehaus.xfire.demo.BookService</serviceClass>
+
+    <inHandlers>
+      <handler handlerClass="org.codehaus.xfire.util.dom.DOMInHandler" />
+      <bean class="org.codehaus.xfire.security.wss4j.WSS4JInHandler" xmlns="">
+        <property name="properties">
+          <props>
+            <prop key="action">Signature</prop>
+            <prop key="signaturePropFile">META-INF/xfire/insecurity_sign.properties</prop>
+            <prop key="passwordCallbackClass">org.codehaus.xfire.demo.PasswordHandler</prop>
+          </props>
+        </property>
+      </bean>
+    </inHandlers>
+  </service>
+  <!-- END SNIPPET: sig -->
+  <!-- START SNIPPET: enc2ways -->
+ <!--  ============= Encryption 2 Directions  ============= -->
+  <service>
+    <name>BookServiceENC2Way</name>
+    <namespace>http://xfire.codehaus.org/BookService</namespace>
+    <serviceClass>org.codehaus.xfire.demo.BookService</serviceClass>
+
+    <inHandlers>
+      <handler handlerClass="org.codehaus.xfire.util.dom.DOMInHandler" />
+      <bean class="org.codehaus.xfire.security.wss4j.WSS4JInHandler" xmlns="">
+        <property name="properties">
+          <props>
+            <prop key="action">Encrypt UsernameToken</prop>
+            <prop key="decryptionPropFile">META-INF/xfire/insecurity_enc.properties</prop>
+            <prop key="passwordCallbackClass">org.codehaus.xfire.demo.PasswordHandler</prop>
+          </props>
+        </property>
+      </bean>
+      <handler handlerClass="org.codehaus.xfire.demo.ValidateUserTokenHandler" />
+    </inHandlers>
+    
+     <outHandlers>
+      <handler handlerClass="org.codehaus.xfire.util.dom.DOMOutHandler" />
+      <bean class="org.codehaus.xfire.security.wss4j.WSS4JOutHandler" xmlns="">
+        <property name="properties">
+          <props>
+            <prop key="action">Encrypt</prop>
+            <prop key="encryptionPropFile">META-INF/xfire/server_outsecurity_enc.properties</prop>
+            <prop key="passwordCallbackClass">org.codehaus.xfire.demo.PasswordHandler</prop>
+          </props>
+        </property>
+      </bean>
+    </outHandlers>
+    
+    
+  </service>
+  <!-- END SNIPPET: enc2ways -->
+
+  <!-- START SNIPPET: enc_sig -->
+ <!--  ============= Encryption and Signature  ============= -->
+
+ <service>
+    <name>BookServiceSIGENC</name>
+    <namespace>http://xfire.codehaus.org/BookService</namespace>
+    <serviceClass>org.codehaus.xfire.demo.BookService</serviceClass>
+
+    <inHandlers>
+      <handler handlerClass="org.codehaus.xfire.util.dom.DOMInHandler" />
+      <bean class="org.codehaus.xfire.security.wss4j.WSS4JInHandler" xmlns="">
+        <property name="properties">
+          <props>
+            <prop key="action">Encrypt Signature</prop>
+            <prop key="decryptionPropFile">META-INF/xfire/insecurity_enc.properties</prop>
+            <prop key="signaturePropFile">META-INF/xfire/insecurity_sign.properties</prop>
+            <prop key="passwordCallbackClass">org.codehaus.xfire.demo.PasswordHandler</prop>
+          </props>
+        </property>
+      </bean>
+    </inHandlers>
+  </service>
+
+  <!-- END SNIPPET: enc_sig -->
+</beans>

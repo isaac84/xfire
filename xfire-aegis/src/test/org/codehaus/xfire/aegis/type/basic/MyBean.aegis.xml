@@ -1,0 +1,50 @@
+<mappings xmlns:bean="urn:xfire:bean"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="http://xfire.codehaus.org/schemas/1.0/mapping.xsd">
+  
+  <mapping uri="urn:xfire:bean">
+    <property name="prop1" mappedName="Prop1"/>
+    <property name="prop2" mappedName="Prop2" style="attribute"/>
+  </mapping>
+  
+  <mapping uri="urn:xfire:bean2">
+    <property name="prop1" mappedName="Prop1"/>
+    <property name="prop2" mappedName="Prop2"/>
+  </mapping>
+  
+  <mapping uri="urn:xfire:bean3">
+    <property name="prop1" mappedName="Prop1"/>
+    <property name="prop2" mappedName="Prop2"/>
+  </mapping>
+  
+  <mapping uri="urn:xfire:bean4">
+    <property name="prop2" style="attribute"/>
+  </mapping>
+
+  <mapping uri="urn:xfire:bean5">
+    <property name="prop1" ignore="true"/>
+    <property name="prop2" ignore="true"/>
+  </mapping>
+  
+  <mapping uri="urn:xfire:bean-nillable">
+    <property name="prop1" nillable="false"/>
+    <property name="prop2"/>
+  </mapping>
+  
+  <mapping uri="urn:xfire:bean-minoccurs">
+    <property name="prop1" minOccurs="1"/>
+    <property name="prop2"/>
+  </mapping>
+  
+  <mapping uri="urn:xfire:bean-extensible">
+  </mapping>
+  
+  <mapping uri="urn:xfire:bean-extensibleoff" extensibleElements="false" extensibleAttributes="false">
+  </mapping>
+  
+  <mapping uri="urn:xfire:custom-type">
+    <property name="prop1" type="org.codehaus.xfire.aegis.type.basic.MyStringType"/>
+  </mapping>
+  
+  <mapping uri="urn:xfire:custom-ns" xmlns:t="urn:Bean" name="t:Bean"/>
+</mappings>

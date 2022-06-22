@@ -1,0 +1,9 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+ <env:Header/>
+ <env:Body>
+  <add xmlns="http://services.xfire.codehaus.org">
+    <one>1</one>
+    <two>1</two>
+  </add>
+ </env:Body>
+</env:Envelope>

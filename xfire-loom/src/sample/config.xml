@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <xfire-block-deployer>
+        <!--        <service>your-service</service>-->
+    </xfire-block-deployer>
+
+    <xfire-service-deployer>
+        <defaultFactory>xfire-service-factory</defaultFactory>
+        <!--        <service key="your-service">-->
+        <!--            <name>blah blah</name>-->
+        <!--        </service>-->
+    </xfire-service-deployer>
+
+    <xfire-type-mapping-registry>
+        <!-- Custom Encodings ala..
+
+                <typeMapping namespace="http://schemas.xmlsoap.org/soap/encoding/">
+                    <type class="java.lang.String"
+                        namespace="http://www.w3.org/2001/XMLSchema"
+                        name="string"
+                        type="org.codehaus.xfire.type.basic.StringType"/>
+                </typeMapping>
+        -->
+    </xfire-type-mapping-registry>
+</config>

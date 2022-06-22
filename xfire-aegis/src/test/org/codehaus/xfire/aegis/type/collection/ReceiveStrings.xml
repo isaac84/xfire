@@ -1,0 +1,10 @@
+<env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+ <env:Header/>
+ <env:Body>
+  <receiveStrings xmlns="http://collection.type.aegis.xfire.codehaus.org">
+    <strings xmlns:s="urn:string">
+      <s:string>1.0</s:string>
+    </strings>
+  </receiveStrings>
+ </env:Body>
+</env:Envelope>

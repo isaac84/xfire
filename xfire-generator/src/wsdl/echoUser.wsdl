@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" 
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+   xmlns:tns="http://xfire.codehaus.org/test/echo" 
+  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  targetNamespace="http://xfire.codehaus.org/test/echo" name="Echo">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://xfire.codehaus.org/test/echo" elementFormDefault="qualified" 
+      attributeFormDefault="qualified">
+      <xsd:element name="UserInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Name" type="xsd:string"/>
+            <xsd:element name="Email" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="echoUser">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:UserInfo"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="echoUserResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:UserInfo"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="echoUser">
+    <wsdl:part element="tns:echoUser" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="echoUserResponse">
+    <wsdl:part element="tns:echoUserResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="EchoPortType">
+    <wsdl:operation name="echoUser">
+      <wsdl:input message="tns:echoUser" name="echoUser"/>
+      <wsdl:output message="tns:echoUserResponse" name="echoUserResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EchoHttpBinding" type="tns:EchoPortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="echoUser">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="echoUser">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="echoUserResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Echo">
+    <wsdl:port binding="tns:EchoHttpBinding" name="EchoHttpPort">
+      <wsdlsoap:address location="http://localhost:8080/Echo"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

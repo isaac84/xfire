@@ -1,0 +1,60 @@
+<mappings>
+  <mapping>
+    <method name="getStrings">
+      <return-type componentType="java.lang.String" />
+    </method>
+    <method name="getDoubles">
+      <return-type componentType="java.lang.Double" />
+    </method>
+    <method name="getListofListofDoubles">
+      <return-type componentType="#someDoubles" typeName="LotsOfDoubles"/>
+    </method>
+    <method name="receiveStrings">
+      <parameter index="0" componentType="java.lang.String" />
+    </method>
+    <method name="receiveDoubles">
+      <parameter index="0" componentType="java.lang.Double" />
+    </method>
+    <component name="someDoubles" class="java.util.List"  typeName="SomeDoubles" componentType="java.lang.Double" />
+
+  </mapping>
+
+  <mapping uri="urn:min-max-test">
+    <method name="getStrings">
+      <return-type componentType="java.lang.String" />
+    </method>
+    <method name="getDoubles">
+      <return-type componentType="java.lang.Double" />
+    </method>
+    <method name="getListofListofDoubles">
+      <return-type componentType="#listOfDoubles" />
+    </method>
+    <method name="receiveStrings">
+      <parameter index="0" componentType="java.lang.String" minOccurs="1" maxOccurs="4" />
+    </method>
+    <method name="receiveDoubles">
+      <parameter index="0" componentType="java.lang.Double" />
+    </method>
+    <component name="listOfDoubles" class="java.util.List" componentType="java.lang.Double"/>
+  </mapping>
+
+  <mapping uri="urn:flat-test">
+    <method name="getStrings">
+      <return-type componentType="java.lang.String" flat="true" />
+    </method>
+    <method name="getDoubles">
+      <return-type componentType="java.lang.Double" flat="true" />
+    </method>
+    <method name="getListofListofDoubles">
+      <return-type componentType="#listOfDoubles" flat="true"/>
+    </method>
+    <method name="receiveStrings">
+      <parameter index="0" componentType="java.lang.String" flat="true" minOccurs="1" maxOccurs="4" />
+    </method>
+    <method name="receiveDoubles">
+      <parameter index="0" componentType="java.lang.Double" flat="true" />
+    </method>
+    <component name="listOfDoubles" class="java.util.List" componentType="java.lang.Double"/>
+  </mapping>
+  
+</mappings>
