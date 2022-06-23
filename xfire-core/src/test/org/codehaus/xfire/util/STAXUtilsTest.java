@@ -15,7 +15,7 @@ import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.XFire;
 import org.codehaus.xfire.test.AbstractXFireTest;
 import org.codehaus.xfire.util.stax.DepthXMLStreamReader;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 import com.bea.xml.stream.MXParserFactory;
 import com.bea.xml.stream.XMLOutputFactoryBase;

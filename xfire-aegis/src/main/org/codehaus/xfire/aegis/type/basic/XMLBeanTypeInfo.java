@@ -12,7 +12,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codehaus.xfire.XFireRuntimeException;
 import org.codehaus.xfire.util.NamespaceHelper;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class XMLBeanTypeInfo
     extends BeanTypeInfo

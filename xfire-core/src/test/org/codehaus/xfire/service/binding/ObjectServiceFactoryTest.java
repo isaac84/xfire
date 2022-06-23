@@ -19,7 +19,7 @@ import org.codehaus.xfire.soap.AbstractSoapBinding;
 import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.test.AbstractXFireTest;
 import org.codehaus.xfire.transport.local.LocalTransport;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class ObjectServiceFactoryTest
         extends AbstractXFireTest

@@ -1,7 +1,7 @@
 package org.codehaus.xfire.fault;
 
 import org.codehaus.xfire.service.Echo;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 /**
  * Throws an exception while echoing.

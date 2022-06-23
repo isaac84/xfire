@@ -8,7 +8,7 @@ import org.codehaus.xfire.aegis.MessageReader;
 import org.codehaus.xfire.aegis.MessageWriter;
 import org.codehaus.xfire.fault.XFireFault;
 import org.codehaus.xfire.wsdl.SchemaType;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 /**
  * A Type reads and writes XML fragments to create and write objects.

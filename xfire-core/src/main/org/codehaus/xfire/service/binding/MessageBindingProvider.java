@@ -24,7 +24,7 @@ import org.codehaus.xfire.util.jdom.StaxSerializer;
 import org.codehaus.xfire.util.stax.FragmentStreamReader;
 import org.codehaus.xfire.wsdl.SchemaType;
 import org.codehaus.xfire.wsdl.SimpleSchemaType;
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.w3c.dom.Document;
 
 public class MessageBindingProvider
@@ -61,7 +61,7 @@ public class MessageBindingProvider
             StaxBuilder builder = new StaxBuilder();
             try
             {
-                org.jdom.Document doc = builder.build(new FragmentStreamReader(reader));
+                org.jdom2.Document doc = builder.build(new FragmentStreamReader(reader));
                 
                 if (doc.hasRootElement())
                     return doc.getRootElement();

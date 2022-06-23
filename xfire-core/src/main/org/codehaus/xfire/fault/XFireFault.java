@@ -8,7 +8,7 @@ import javax.xml.namespace.QName;
 import org.codehaus.xfire.XFireException;
 import org.codehaus.xfire.soap.Soap11;
 import org.codehaus.xfire.soap.Soap12;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 /**
  * In XFire, applications throw their own declared exceptions which are then turned into faults.  The

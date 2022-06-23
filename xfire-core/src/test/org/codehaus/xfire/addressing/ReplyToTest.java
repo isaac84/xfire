@@ -14,7 +14,7 @@ import org.codehaus.xfire.transport.Channel;
 import org.codehaus.xfire.transport.Transport;
 import org.codehaus.xfire.transport.local.LocalTransport;
 import org.codehaus.xfire.util.jdom.JDOMEndpoint;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class ReplyToTest
     extends AbstractXFireTest

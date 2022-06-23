@@ -18,8 +18,8 @@ import org.codehaus.xfire.aegis.type.TypeMappingRegistry;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.ServiceInfo;
 import org.codehaus.xfire.soap.SoapConstants;
-import org.jdom.Document;
-import org.jdom.Element;
+import org.jdom2.Document;
+import org.jdom2.Element;
 
 public class DateTypeTest
     extends AbstractXFireAegisTest

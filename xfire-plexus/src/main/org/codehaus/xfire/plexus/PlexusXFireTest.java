@@ -31,9 +31,9 @@ import org.codehaus.xfire.transport.local.LocalTransport;
 import org.codehaus.xfire.util.STAXUtils;
 import org.codehaus.xfire.util.jdom.StaxBuilder;
 import org.codehaus.xfire.wsdl.WSDLWriter;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.output.XMLOutputter;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.output.XMLOutputter;
 
 /**
  * Contains helpful methods to test SOAP services.

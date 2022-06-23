@@ -6,7 +6,7 @@ import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.invoker.BeanInvoker;
 import org.codehaus.xfire.util.LoggingHandler;
 import org.codehaus.xfire.util.dom.DOMOutHandler;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * This test ensures that we're handling inheritance of itnerfaces

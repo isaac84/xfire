@@ -13,7 +13,7 @@ import org.codehaus.xfire.fault.XFireFault;
 import org.codehaus.xfire.util.jdom.StaxBuilder;
 import org.codehaus.xfire.util.jdom.StaxSerializer;
 import org.codehaus.xfire.util.stax.JDOMStreamReader;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * Reads and writes <code>org.w3c.dom.Document</code> types. 

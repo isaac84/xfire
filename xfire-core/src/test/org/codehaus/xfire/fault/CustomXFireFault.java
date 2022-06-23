@@ -1,6 +1,6 @@
 package org.codehaus.xfire.fault;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class CustomXFireFault
     extends XFireFault

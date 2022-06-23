@@ -13,7 +13,7 @@ import org.codehaus.xfire.exchange.AbstractMessage;
 import org.codehaus.xfire.fault.XFireFault;
 import org.codehaus.xfire.service.MessagePartInfo;
 import org.codehaus.xfire.service.binding.AbstractBinding;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 /**
  * A holder type which makes multiple out parameters possible.

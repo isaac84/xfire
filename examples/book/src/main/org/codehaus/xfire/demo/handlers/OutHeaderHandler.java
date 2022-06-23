@@ -2,7 +2,7 @@ package org.codehaus.xfire.demo.handlers;
 
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.handler.AbstractHandler;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 /**
  *  @author <a href="mailto:tsztelak@gmail.com">Tomasz Sztelak</a>

@@ -18,7 +18,7 @@ import org.codehaus.xfire.util.NamespaceHelper;
 import org.codehaus.xfire.util.jdom.StaxBuilder;
 import org.codehaus.xfire.util.jdom.StaxSerializer;
 import org.codehaus.xfire.util.stax.FragmentStreamReader;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class Soap11FaultSerializer
     implements MessageSerializer

@@ -16,7 +16,7 @@ import org.codehaus.xfire.soap.Soap12Binding;
 import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.transport.local.LocalTransport;
 import org.codehaus.xfire.wsdl11.builder.WSDLBuilder;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class AuthFaultTest
     extends AbstractXFireAegisTest

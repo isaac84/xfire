@@ -49,7 +49,7 @@ import org.codehaus.xfire.aegis.type.xml.XMLStreamReaderType;
 import org.codehaus.xfire.soap.Soap11;
 import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.util.ClassLoaderUtils;
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.w3c.dom.Document;
 
 /**
@@ -360,7 +360,7 @@ public class DefaultTypeMappingRegistry
         register(soapTM, Source.class, XSD_ANY, new SourceType());
         register(soapTM, XMLStreamReader.class, XSD_ANY, new XMLStreamReaderType());
         register(soapTM, Element.class, XSD_ANY, new JDOMElementType());
-        register(soapTM, org.jdom.Document.class, XSD_ANY, new JDOMDocumentType());
+        register(soapTM, org.jdom2.Document.class, XSD_ANY, new JDOMDocumentType());
         register(soapTM, Object.class, XSD_ANY, new ObjectType());
         register(soapTM, DataSource.class, XSD_BASE64, new DataSourceType());
         register(soapTM, DataHandler.class, XSD_BASE64, new DataHandlerType());
@@ -404,7 +404,7 @@ public class DefaultTypeMappingRegistry
         register(tm, Source.class, XSD_ANY, new SourceType());
         register(tm, XMLStreamReader.class, XSD_ANY, new XMLStreamReaderType());
         register(tm, Element.class, XSD_ANY, new JDOMElementType());
-        register(tm, org.jdom.Document.class, XSD_ANY, new JDOMDocumentType());
+        register(tm, org.jdom2.Document.class, XSD_ANY, new JDOMDocumentType());
         register(tm, Object.class, XSD_ANY, new ObjectType());
         register(tm, DataSource.class, XSD_BASE64, new DataSourceType());
         register(tm, DataHandler.class, XSD_BASE64, new DataHandlerType());

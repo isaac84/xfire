@@ -13,7 +13,7 @@ import org.codehaus.xfire.soap.AbstractSoapBinding;
 import org.codehaus.xfire.soap.Soap11Binding;
 import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.transport.local.LocalTransport;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class XFire582Test extends AbstractXFireAegisTest
 {

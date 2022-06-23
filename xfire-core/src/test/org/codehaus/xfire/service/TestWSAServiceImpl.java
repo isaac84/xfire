@@ -3,7 +3,7 @@ package org.codehaus.xfire.service;
 import javax.xml.namespace.QName;
 
 import org.codehaus.xfire.fault.XFireFault;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class TestWSAServiceImpl
     implements TestWSAService

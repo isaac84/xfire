@@ -17,7 +17,7 @@ import org.codehaus.xfire.aegis.type.java5.dto.CollectionDTO;
 import org.codehaus.xfire.aegis.type.java5.dto.DTOService;
 import org.codehaus.xfire.aegis.type.java5.dto.ObjectDTO;
 import org.codehaus.xfire.service.Service;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class CollectionTest
     extends AbstractXFireAegisTest

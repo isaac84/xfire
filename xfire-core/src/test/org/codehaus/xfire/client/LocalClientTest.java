@@ -10,7 +10,7 @@ import org.codehaus.xfire.service.invoker.ObjectInvoker;
 import org.codehaus.xfire.test.AbstractXFireTest;
 import org.codehaus.xfire.transport.Transport;
 import org.codehaus.xfire.transport.local.LocalTransport;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 /**
  * @author <a href="mailto:dan@envoisolutions.com">Dan Diephouse</a>

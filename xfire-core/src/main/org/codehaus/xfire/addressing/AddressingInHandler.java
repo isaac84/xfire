@@ -17,8 +17,8 @@ import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.transport.Channel;
 import org.codehaus.xfire.transport.Transport;
 import org.codehaus.xfire.transport.dead.DeadLetterTransport;
-import org.jdom.Attribute;
-import org.jdom.Element;
+import org.jdom2.Attribute;
+import org.jdom2.Element;
 
 public class AddressingInHandler
     extends AbstractHandler

@@ -27,7 +27,7 @@ import org.codehaus.xfire.aegis.type.Type;
 import org.codehaus.xfire.fault.XFireFault;
 import org.codehaus.xfire.soap.handler.ReadHeadersHandler;
 import org.codehaus.xfire.util.STAXUtils;
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.w3c.dom.Document;
 import org.w3c.dom.DocumentFragment;
 import org.w3c.dom.Node;

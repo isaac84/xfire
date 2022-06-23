@@ -14,7 +14,7 @@ import org.codehaus.xfire.service.EchoImpl;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.invoker.ObjectInvoker;
 import org.codehaus.xfire.test.AbstractXFireTest;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class XFireServerSSLTest
     extends AbstractXFireTest

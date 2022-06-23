@@ -1,7 +1,7 @@
 package org.codehaus.xfire.jaxb;
 
 import org.codehaus.xfire.spring.AbstractXFireSpringTest;
-import org.jdom.Document;
+import org.jdom2.Document;
 import org.springframework.context.ApplicationContext;
 import org.apache.xbean.spring.context.ClassPathXmlApplicationContext;
 

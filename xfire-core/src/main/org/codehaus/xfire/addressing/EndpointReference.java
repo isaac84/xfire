@@ -7,13 +7,14 @@ import java.util.List;
 
 import javax.xml.namespace.QName;
 
-import org.jdom.Attribute;
-import org.jdom.Content;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.Namespace;
-import org.jdom.Parent;
-import org.jdom.filter.Filter;
+import org.jdom2.Attribute;
+import org.jdom2.Content;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
+import org.jdom2.Parent;
+import org.jdom2.filter.Filter;
+import org.jdom2.util.IteratorIterable;
 
 /**
  * @author
@@ -150,12 +151,12 @@ public class EndpointReference
         return element.addContent(str);
     }
 
-    public void addNamespaceDeclaration(Namespace additional)
+    public boolean addNamespaceDeclaration(Namespace additional)
     {
-        element.addNamespaceDeclaration(additional);
+        return element.addNamespaceDeclaration(additional);
     }
 
-    public Object clone()
+    public Element clone()
     {
         return element.clone();
     }
@@ -165,7 +166,7 @@ public class EndpointReference
         return element.cloneContent();
     }
 
-    public Content detach()
+    public Element detach()
     {
         return element.detach();
     }
@@ -285,12 +286,12 @@ public class EndpointReference
         return element.getContentSize();
     }
 
-    public Iterator getDescendants()
+    public IteratorIterable<Content> getDescendants()
     {
         return element.getDescendants();
     }
 
-    public Iterator getDescendants(Filter filter)
+    public  <F extends Content> IteratorIterable<F> getDescendants(Filter<F> filter)
     {
         return element.getDescendants(filter);
     }
@@ -328,11 +329,6 @@ public class EndpointReference
     public Parent getParent()
     {
         return element.getParent();
-    }
-
-    public Element getParentElement()
-    {
-        return element.getParentElement();
     }
 
     public String getQualifiedName()

@@ -14,7 +14,7 @@ import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.test.AbstractXFireTest;
 import org.codehaus.xfire.util.dom.DOMInHandler;
 import org.codehaus.xfire.util.dom.DOMOutHandler;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * @author <a href="mailto:dan@envoisolutions.com">Dan Diephouse</a>

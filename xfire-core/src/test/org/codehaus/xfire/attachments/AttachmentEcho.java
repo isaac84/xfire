@@ -3,7 +3,7 @@ package org.codehaus.xfire.attachments;
 import javax.activation.DataHandler;
 
 import org.codehaus.xfire.MessageContext;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class AttachmentEcho
 {

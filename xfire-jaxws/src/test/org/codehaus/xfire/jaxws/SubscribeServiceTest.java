@@ -3,7 +3,7 @@ package org.codehaus.xfire.jaxws;
 import org.codehaus.xfire.annotations.AnnotationServiceFactory;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.test.AbstractXFireTest;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class SubscribeServiceTest extends AbstractXFireTest {
 

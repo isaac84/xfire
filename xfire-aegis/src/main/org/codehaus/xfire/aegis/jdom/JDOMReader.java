@@ -9,9 +9,9 @@ import org.codehaus.xfire.aegis.AbstractMessageReader;
 import org.codehaus.xfire.aegis.MessageReader;
 import org.codehaus.xfire.aegis.stax.AttributeReader;
 import org.codehaus.xfire.util.stax.JDOMStreamReader;
-import org.jdom.Attribute;
-import org.jdom.Element;
-import org.jdom.Namespace;
+import org.jdom2.Attribute;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
 
 public class JDOMReader
     extends AbstractMessageReader

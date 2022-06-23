@@ -10,7 +10,7 @@ import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.binding.MessageBindingProvider;
 import org.codehaus.xfire.service.invoker.ObjectInvoker;
 import org.codehaus.xfire.test.AbstractXFireTest;
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.servlet.Context;
 import org.mortbay.jetty.servlet.ServletHandler;

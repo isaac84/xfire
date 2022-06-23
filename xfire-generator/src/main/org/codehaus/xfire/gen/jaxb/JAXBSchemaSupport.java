@@ -21,7 +21,7 @@ import org.codehaus.xfire.jaxb2.JaxbTypeRegistry;
 import org.codehaus.xfire.service.MessagePartInfo;
 import org.codehaus.xfire.service.binding.BindingProvider;
 import org.codehaus.xfire.wsdl11.parser.SchemaInfo;
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;

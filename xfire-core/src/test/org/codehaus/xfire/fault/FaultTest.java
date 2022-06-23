@@ -7,7 +7,7 @@ import org.codehaus.xfire.service.invoker.ObjectInvoker;
 import org.codehaus.xfire.soap.Soap11;
 import org.codehaus.xfire.soap.Soap12;
 import org.codehaus.xfire.test.AbstractXFireTest;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * XFireTest

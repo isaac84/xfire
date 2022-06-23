@@ -8,7 +8,7 @@ import org.codehaus.xfire.aegis.jdom.JDOMReader;
 import org.codehaus.xfire.soap.Soap11;
 import org.codehaus.xfire.test.AbstractXFireTest;
 import org.codehaus.xfire.util.jdom.StaxBuilder;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * @author <a href="mailto:dan@envoisolutions.com">Dan Diephouse</a>

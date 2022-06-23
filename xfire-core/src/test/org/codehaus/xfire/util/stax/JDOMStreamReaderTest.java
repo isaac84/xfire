@@ -2,9 +2,9 @@ package org.codehaus.xfire.util.stax;
 
 import javax.xml.stream.XMLStreamReader;
 
-import org.jdom.Attribute;
-import org.jdom.Element;
-import org.jdom.Namespace;
+import org.jdom2.Attribute;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
 
 /**
  * @author <a href="mailto:dan@envoisolutions.com">Dan Diephouse</a>

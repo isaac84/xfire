@@ -10,7 +10,7 @@ import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.binding.ObjectServiceFactory;
 import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.test.AbstractXFireTest;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class WeatherServiceTest
     extends AbstractXFireTest

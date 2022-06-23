@@ -3,7 +3,7 @@ package org.codehaus.xfire.jibx;
 import org.codehaus.xfire.aegis.AbstractXFireAegisTest;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.invoker.BeanInvoker;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class JibxBindingTest
     extends AbstractXFireAegisTest

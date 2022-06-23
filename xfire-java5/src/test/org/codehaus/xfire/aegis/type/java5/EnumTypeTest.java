@@ -11,8 +11,8 @@ import org.codehaus.xfire.aegis.type.CustomTypeMapping;
 import org.codehaus.xfire.aegis.type.Type;
 import org.codehaus.xfire.aegis.type.java5.CurrencyService.Currency;
 import org.codehaus.xfire.soap.SoapConstants;
-import org.jdom.Document;
-import org.jdom.Element;
+import org.jdom2.Document;
+import org.jdom2.Element;
 
 public class EnumTypeTest
     extends AbstractXFireAegisTest

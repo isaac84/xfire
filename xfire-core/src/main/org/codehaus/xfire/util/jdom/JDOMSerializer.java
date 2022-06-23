@@ -8,7 +8,7 @@ import org.codehaus.xfire.exchange.InMessage;
 import org.codehaus.xfire.exchange.MessageSerializer;
 import org.codehaus.xfire.exchange.OutMessage;
 import org.codehaus.xfire.fault.XFireFault;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * Reads/writes JDOM documents to the body of a message.

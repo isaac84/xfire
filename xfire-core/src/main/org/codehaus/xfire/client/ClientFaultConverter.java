@@ -13,7 +13,7 @@ import org.codehaus.xfire.service.MessagePartInfo;
 import org.codehaus.xfire.service.OperationInfo;
 import org.codehaus.xfire.service.binding.BindingProvider;
 import org.codehaus.xfire.util.stax.JDOMStreamReader;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 /**
  * Takes an XFireFault and converts it to a local exception type if possible.

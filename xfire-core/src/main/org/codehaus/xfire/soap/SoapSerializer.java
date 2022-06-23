@@ -12,7 +12,7 @@ import org.codehaus.xfire.exchange.MessageSerializer;
 import org.codehaus.xfire.exchange.OutMessage;
 import org.codehaus.xfire.fault.XFireFault;
 import org.codehaus.xfire.util.jdom.StaxSerializer;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class SoapSerializer
     implements MessageSerializer

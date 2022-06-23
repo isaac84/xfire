@@ -21,7 +21,7 @@ import org.codehaus.xfire.service.invoker.ObjectInvoker;
 import org.codehaus.xfire.soap.Soap11Binding;
 import org.codehaus.xfire.test.AbstractXFireTest;
 import org.codehaus.xfire.transport.Transport;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class XFireServerTest
     extends AbstractXFireTest

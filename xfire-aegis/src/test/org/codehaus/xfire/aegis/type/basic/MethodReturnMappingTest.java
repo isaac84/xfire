@@ -5,7 +5,7 @@ import java.util.List;
 import org.codehaus.xfire.aegis.AbstractXFireAegisTest;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.soap.SoapConstants;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class MethodReturnMappingTest extends AbstractXFireAegisTest {
 

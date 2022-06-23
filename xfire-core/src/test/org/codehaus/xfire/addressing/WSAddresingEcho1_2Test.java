@@ -14,10 +14,10 @@ import org.codehaus.xfire.service.TestWSAServiceImpl;
 import org.codehaus.xfire.service.binding.MessageBindingProvider;
 import org.codehaus.xfire.service.binding.ObjectServiceFactory;
 import org.codehaus.xfire.test.AbstractXFireTest;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.Namespace;
-import org.jdom.output.XMLOutputter;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
+import org.jdom2.output.XMLOutputter;
 
 /**
  * @author <a href="mailto:tsztelak@gmail.com">Tomasz Sztelak</a>
@@ -138,6 +138,7 @@ public class WSAddresingEcho1_2Test
 
         addNamespace("customer", "http://example.org/customer");
         addNamespace("wsa", "http://www.w3.org/2005/08/addressing");
+        addNamespace("soap", "http://www.w3.org/2003/05/soap-envelope");
         assertValid("/soap:Envelope/soap:Header/customer:CustomerKey[text()='Key#123456789']", doc);
         assertValid("/soap:Envelope/soap:Header/customer:CustomerKey[@wsa:isReferenceParameter='true']",
                     doc);
@@ -179,6 +180,7 @@ public class WSAddresingEcho1_2Test
 
         addNamespace("customer", "http://example.org/customer");
         addNamespace("wsa", "http://www.w3.org/2005/08/addressing");
+        addNamespace("soap", "http://www.w3.org/2003/05/soap-envelope");
         assertValid("/soap:Envelope/soap:Header/wsa:Action[text()='http://www.w3.org/2005/08/addressing/fault']",
                     doc);
 
@@ -217,6 +219,7 @@ public class WSAddresingEcho1_2Test
 
         addNamespace("customer", "http://example.org/customer");
         addNamespace("wsa", "http://www.w3.org/2005/08/addressing");
+        addNamespace("soap", "http://www.w3.org/2003/05/soap-envelope");
         assertValid("/soap:Envelope/soap:Header/wsa:Action[text()='http://www.w3.org/2005/08/addressing/fault']",
                     doc);
         assertValid("/soap:Envelope/soap:Header/customer:CustomerKey[text()='Fault#123456789']",
@@ -248,6 +251,7 @@ public class WSAddresingEcho1_2Test
         XMLOutputter output = new XMLOutputter(); 
         output.output(doc, System.out);
         addNamespace("wsa", "http://www.w3.org/2005/08/addressing");
+        addNamespace("soap", "http://www.w3.org/2003/05/soap-envelope");
         assertValid("/soap:Envelope/soap:Header/wsa:Action[text()='http://www.w3.org/2005/08/addressing/fault']",
                     doc);
         assertValid("/soap:Envelope/soap:Body/soap:Fault/soap:Code/soap:Value[text()='ns1:Sender']",

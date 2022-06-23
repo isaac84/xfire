@@ -29,8 +29,8 @@ import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.invoker.Invoker;
 import org.codehaus.xfire.util.stax.JDOMStreamReader;
 import org.codehaus.xfire.util.stax.JDOMStreamWriter;
-import org.jdom.Element;
-import org.jdom.Namespace;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
 
 /**
  * This class is responsible for taking the parameters on the InMessage,

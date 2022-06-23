@@ -9,7 +9,7 @@ import org.codehaus.xfire.aegis.AbstractXFireAegisTest;
 import org.codehaus.xfire.aegis.inheritance.xfire704.response.TestBaseResponse;
 import org.codehaus.xfire.aegis.inheritance.xfire704.response.TestSubResponse;
 import org.codehaus.xfire.service.Service;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class WSDLNamespaceTest extends AbstractXFireAegisTest
 {

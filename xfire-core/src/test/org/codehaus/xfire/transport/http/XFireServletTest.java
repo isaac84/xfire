@@ -11,7 +11,7 @@ import org.codehaus.xfire.test.AbstractServletTest;
 import org.codehaus.xfire.transport.Transport;
 import org.codehaus.xfire.wsdl.ResourceWSDL;
 import org.codehaus.xfire.wsdl.WSDLWriter;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 import com.meterware.httpunit.GetMethodWebRequest;
 import com.meterware.httpunit.PostMethodWebRequest;

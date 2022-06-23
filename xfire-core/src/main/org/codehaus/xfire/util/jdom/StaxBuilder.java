@@ -66,16 +66,17 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import org.codehaus.xfire.util.STAXUtils;
-import org.jdom.Attribute;
-import org.jdom.Content;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMFactory;
-import org.jdom.Namespace;
-import org.jdom.UncheckedJDOMFactory;
+import org.jdom2.Attribute;
+import org.jdom2.AttributeType;
+import org.jdom2.Content;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMFactory;
+import org.jdom2.Namespace;
+import org.jdom2.UncheckedJDOMFactory;
 
 /**
- * Builds a JDOM {@link org.jdom.Document org.jdom.Document} using a
+ * Builds a JDOM {@link org.jdom2.Document org.jdom2.Document} using a
  * {@link javax.xml.stream.XMLStreamReader}.
  * 
  * @version $Revision: 1198 $, $Date: 2006-02-15 21:21:25 +0100 (Wed, 15 Feb 2006) $
@@ -92,26 +93,26 @@ public class StaxBuilder
     final static HashMap attrTypes = new HashMap(32);
     static
     {
-        attrTypes.put("CDATA", new Integer(Attribute.CDATA_TYPE));
-        attrTypes.put("cdata", new Integer(Attribute.CDATA_TYPE));
-        attrTypes.put("ID", new Integer(Attribute.ID_TYPE));
-        attrTypes.put("id", new Integer(Attribute.ID_TYPE));
-        attrTypes.put("IDREF", new Integer(Attribute.IDREF_TYPE));
-        attrTypes.put("idref", new Integer(Attribute.IDREF_TYPE));
-        attrTypes.put("IDREFS", new Integer(Attribute.IDREFS_TYPE));
-        attrTypes.put("idrefs", new Integer(Attribute.IDREFS_TYPE));
-        attrTypes.put("ENTITY", new Integer(Attribute.ENTITY_TYPE));
-        attrTypes.put("entity", new Integer(Attribute.ENTITY_TYPE));
-        attrTypes.put("ENTITIES", new Integer(Attribute.ENTITIES_TYPE));
-        attrTypes.put("entities", new Integer(Attribute.ENTITIES_TYPE));
-        attrTypes.put("NMTOKEN", new Integer(Attribute.NMTOKEN_TYPE));
-        attrTypes.put("nmtoken", new Integer(Attribute.NMTOKEN_TYPE));
-        attrTypes.put("NMTOKENS", new Integer(Attribute.NMTOKENS_TYPE));
-        attrTypes.put("nmtokens", new Integer(Attribute.NMTOKENS_TYPE));
-        attrTypes.put("NOTATION", new Integer(Attribute.NOTATION_TYPE));
-        attrTypes.put("notation", new Integer(Attribute.NOTATION_TYPE));
-        attrTypes.put("ENUMERATED", new Integer(Attribute.ENUMERATED_TYPE));
-        attrTypes.put("enumerated", new Integer(Attribute.ENUMERATED_TYPE));
+        attrTypes.put("CDATA", Attribute.CDATA_TYPE);
+        attrTypes.put("cdata", Attribute.CDATA_TYPE);
+        attrTypes.put("ID", Attribute.ID_TYPE);
+        attrTypes.put("id", Attribute.ID_TYPE);
+        attrTypes.put("IDREF", Attribute.IDREF_TYPE);
+        attrTypes.put("idref", Attribute.IDREF_TYPE);
+        attrTypes.put("IDREFS", Attribute.IDREFS_TYPE);
+        attrTypes.put("idrefs", Attribute.IDREFS_TYPE);
+        attrTypes.put("ENTITY", Attribute.ENTITY_TYPE);
+        attrTypes.put("entity", Attribute.ENTITY_TYPE);
+        attrTypes.put("ENTITIES", Attribute.ENTITIES_TYPE);
+        attrTypes.put("entities", Attribute.ENTITIES_TYPE);
+        attrTypes.put("NMTOKEN", Attribute.NMTOKEN_TYPE);
+        attrTypes.put("nmtoken", Attribute.NMTOKEN_TYPE);
+        attrTypes.put("NMTOKENS", Attribute.NMTOKENS_TYPE);
+        attrTypes.put("nmtokens", Attribute.NMTOKENS_TYPE);
+        attrTypes.put("NOTATION", Attribute.NOTATION_TYPE);
+        attrTypes.put("notation", Attribute.NOTATION_TYPE);
+        attrTypes.put("ENUMERATED", Attribute.ENUMERATED_TYPE);
+        attrTypes.put("enumerated", Attribute.ENUMERATED_TYPE);
     }
 
     /** The factory for creating new JDOM objects */
@@ -472,14 +473,14 @@ public class StaxBuilder
         }
     }
 
-    private static int resolveAttrType(String typeStr)
+    private static AttributeType resolveAttrType(String typeStr)
     {
         if (typeStr != null && typeStr.length() > 0)
         {
-            Integer I = (Integer) attrTypes.get(typeStr);
-            if (I != null)
+            AttributeType type = (AttributeType)attrTypes.get(typeStr);
+            if (type != null)
             {
-                return I.intValue();
+                return type;
             }
         }
         return Attribute.UNDECLARED_TYPE;

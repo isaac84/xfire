@@ -4,7 +4,7 @@ import javax.xml.namespace.QName;
 
 import org.codehaus.xfire.service.MessagePartInfo;
 import org.codehaus.xfire.service.binding.BindingProvider;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 import com.sun.codemodel.JExpression;
 import com.sun.codemodel.JType;

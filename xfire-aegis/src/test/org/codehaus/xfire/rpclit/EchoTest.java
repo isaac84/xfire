@@ -5,7 +5,7 @@ import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.binding.ObjectServiceFactory;
 import org.codehaus.xfire.services.Echo;
 import org.codehaus.xfire.soap.SoapConstants;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class EchoTest
     extends AbstractXFireAegisTest

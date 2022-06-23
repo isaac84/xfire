@@ -14,8 +14,8 @@ import org.apache.commons.logging.LogFactory;
 import org.codehaus.xfire.XFireRuntimeException;
 import org.codehaus.xfire.service.ServiceInfo;
 import org.codehaus.xfire.util.jdom.StaxBuilder;
-import org.jdom.Document;
-import org.jdom.Element;
+import org.jdom2.Document;
+import org.jdom2.Element;
 
 /**
  * Builds DocumentationProvider based on XML files.

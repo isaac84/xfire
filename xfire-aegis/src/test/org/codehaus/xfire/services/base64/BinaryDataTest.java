@@ -3,7 +3,7 @@ package org.codehaus.xfire.services.base64;
 import org.codehaus.xfire.aegis.AbstractXFireAegisTest;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.util.dom.DOMInHandler;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class BinaryDataTest extends AbstractXFireAegisTest
 {

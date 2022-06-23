@@ -18,8 +18,8 @@ import org.codehaus.xfire.aegis.type.TypeMapping;
 import org.codehaus.xfire.fault.XFireFault;
 import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.util.Base64;
-import org.jdom.Attribute;
-import org.jdom.Element;
+import org.jdom2.Attribute;
+import org.jdom2.Element;
 import org.w3c.dom.Document;
 
 /**

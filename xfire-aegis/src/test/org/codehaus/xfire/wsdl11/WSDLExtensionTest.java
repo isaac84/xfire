@@ -11,7 +11,7 @@ import org.codehaus.xfire.service.invoker.BeanInvoker;
 import org.codehaus.xfire.test.EchoImpl;
 import org.codehaus.xfire.wsdl.WSDLWriter;
 import org.codehaus.xfire.wsdl11.builder.DefaultWSDLBuilderFactory;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class WSDLExtensionTest
     extends AbstractXFireAegisTest

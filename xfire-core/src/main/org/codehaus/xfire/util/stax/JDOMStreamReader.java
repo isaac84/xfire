@@ -11,15 +11,16 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 
 import org.codehaus.xfire.util.FastStack;
-import org.jdom.Attribute;
-import org.jdom.CDATA;
-import org.jdom.Comment;
-import org.jdom.Content;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.EntityRef;
-import org.jdom.Namespace;
-import org.jdom.Text;
+import org.jdom2.Attribute;
+import org.jdom2.AttributeType;
+import org.jdom2.CDATA;
+import org.jdom2.Comment;
+import org.jdom2.Content;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.EntityRef;
+import org.jdom2.Namespace;
+import org.jdom2.Text;
 
 /**
  * 
@@ -31,20 +32,20 @@ import org.jdom.Text;
 public class JDOMStreamReader
     extends DOMStreamReader
 {
-    public static String toStaxType(int jdom)
+    public static String toStaxType(AttributeType jdom)
     {
         switch(jdom)
         {
-        case Attribute.CDATA_TYPE: return "CDATA";
-        case Attribute.ID_TYPE: return "ID";
-        case Attribute.IDREF_TYPE: return "IDREF";
-        case Attribute.IDREFS_TYPE: return "IDREFS";
-        case Attribute.ENTITY_TYPE: return "ENTITY";
-        case Attribute.ENTITIES_TYPE: return "ENTITIES";
-        case Attribute.ENUMERATED_TYPE: return "ENUMERATED";
-        case Attribute.NMTOKEN_TYPE: return "NMTOKEN";
-        case Attribute.NMTOKENS_TYPE: return "NMTOKENS";
-        case Attribute.NOTATION_TYPE: return "NOTATION";
+        case CDATA: return "CDATA";
+        case ID: return "ID";
+        case IDREF: return "IDREF";
+        case IDREFS: return "IDREFS";
+        case ENTITY: return "ENTITY";
+        case ENTITIES: return "ENTITIES";
+        case ENUMERATION: return "ENUMERATED";
+        case NMTOKEN: return "NMTOKEN";
+        case NMTOKENS: return "NMTOKENS";
+        case NOTATION: return "NOTATION";
         default: return null;
         }     
     }

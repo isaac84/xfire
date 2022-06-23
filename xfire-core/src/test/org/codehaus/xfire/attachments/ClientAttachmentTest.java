@@ -19,7 +19,7 @@ import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.test.AbstractXFireTest;
 import org.codehaus.xfire.transport.http.HttpTransport;
 import org.codehaus.xfire.transport.http.SoapHttpTransport;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 import com.meterware.httpunit.PostMethodWebRequest;
 import com.meterware.httpunit.WebRequest;

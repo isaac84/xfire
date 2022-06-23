@@ -4,7 +4,7 @@ import org.codehaus.xfire.aegis.AbstractXFireAegisTest;
 import org.codehaus.xfire.service.binding.ObjectServiceFactory;
 import org.codehaus.xfire.services.AddNumbers;
 import org.codehaus.xfire.soap.SoapConstants;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * @author <a href="mailto:dan@envoisolutions.com">Dan Diephouse</a>

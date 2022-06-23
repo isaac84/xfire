@@ -4,7 +4,7 @@ import javax.xml.namespace.QName;
 
 import org.codehaus.xfire.aegis.AbstractMessageWriter;
 import org.codehaus.xfire.aegis.MessageWriter;
-import org.jdom.Attribute;
+import org.jdom2.Attribute;
 
 public class AttributeWriter
     extends AbstractMessageWriter

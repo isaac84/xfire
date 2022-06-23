@@ -6,7 +6,7 @@ import org.codehaus.xfire.soap.SoapVersion;
 import org.codehaus.xfire.soap.SoapVersionFactory;
 import org.codehaus.xfire.util.jdom.StaxBuilder;
 import org.codehaus.xfire.util.stax.FragmentStreamReader;
-import org.jdom.Document;
+import org.jdom2.Document;
 import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.provider.IQProvider;
 import org.jivesoftware.smack.provider.ProviderManager;

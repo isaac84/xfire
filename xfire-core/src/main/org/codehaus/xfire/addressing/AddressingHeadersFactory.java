@@ -1,7 +1,7 @@
 package org.codehaus.xfire.addressing;
 
 import org.codehaus.xfire.fault.XFireFault;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public interface AddressingHeadersFactory
 {

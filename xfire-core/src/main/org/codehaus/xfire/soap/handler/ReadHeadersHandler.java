@@ -14,7 +14,7 @@ import org.codehaus.xfire.handler.AbstractHandler;
 import org.codehaus.xfire.handler.Phase;
 import org.codehaus.xfire.util.jdom.StaxBuilder;
 import org.codehaus.xfire.util.stax.FragmentStreamReader;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public class ReadHeadersHandler
     extends AbstractHandler

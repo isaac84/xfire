@@ -13,7 +13,7 @@ import org.codehaus.xfire.annotations.WebParamAnnotation;
 import org.codehaus.xfire.annotations.WebResultAnnotation;
 import org.codehaus.xfire.annotations.WebServiceAnnotation;
 import org.codehaus.xfire.service.Service;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class Jsr181WebAnnotationsTest
         extends AbstractXFireAegisTest

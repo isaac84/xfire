@@ -19,9 +19,9 @@ import org.codehaus.xfire.aegis.type.Type;
 import org.codehaus.xfire.aegis.type.XMLTypeCreator;
 import org.codehaus.xfire.aegis.type.collection.CollectionType;
 import org.codehaus.xfire.soap.SoapConstants;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.Namespace;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
 
 public class DescriptorTest
     extends AbstractXFireAegisTest

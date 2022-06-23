@@ -14,7 +14,7 @@ import org.codehaus.xfire.service.invoker.ObjectInvoker;
 import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.transport.http.SoapHttpTransport;
 import org.codehaus.xfire.wsdl.WSDLWriter;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * @author <a href="mailto:dan@envoisolutions.com">Dan Diephouse</a>

@@ -7,9 +7,9 @@ import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.util.NamespaceHelper;
 import org.codehaus.xfire.wsdl.AbstractWSDL;
 import org.codehaus.xfire.wsdl.WSDLWriter;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.Namespace;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
 
 /**
  * @author <a href="mailto:peter.royal@pobox.com">peter royal</a>

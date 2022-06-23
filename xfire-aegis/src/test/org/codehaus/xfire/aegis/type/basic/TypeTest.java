@@ -15,8 +15,8 @@ import org.codehaus.xfire.aegis.type.TypeMapping;
 import org.codehaus.xfire.aegis.type.TypeMappingRegistry;
 import org.codehaus.xfire.test.AbstractXFireTest;
 import org.codehaus.xfire.util.STAXUtils;
-import org.jdom.Document;
-import org.jdom.Element;
+import org.jdom2.Document;
+import org.jdom2.Element;
 
 /**
  * TypeTest

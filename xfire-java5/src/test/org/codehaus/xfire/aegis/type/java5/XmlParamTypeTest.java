@@ -11,7 +11,7 @@ import org.codehaus.xfire.aegis.type.DefaultTypeCreator;
 import org.codehaus.xfire.aegis.type.Type;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.soap.SoapConstants;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class XmlParamTypeTest
     extends AbstractXFireAegisTest

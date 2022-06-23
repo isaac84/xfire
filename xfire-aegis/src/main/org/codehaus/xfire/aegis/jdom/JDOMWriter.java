@@ -6,9 +6,9 @@ import javax.xml.stream.XMLStreamWriter;
 import org.codehaus.xfire.aegis.AbstractMessageWriter;
 import org.codehaus.xfire.aegis.MessageWriter;
 import org.codehaus.xfire.util.NamespaceHelper;
-import org.jdom.Attribute;
-import org.jdom.Element;
-import org.jdom.Namespace;
+import org.jdom2.Attribute;
+import org.jdom2.Element;
+import org.jdom2.Namespace;
 
 public class JDOMWriter
     extends AbstractMessageWriter

@@ -6,7 +6,7 @@ import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.exchange.InMessage;
 import org.codehaus.xfire.transport.ChannelEndpoint;
 import org.codehaus.xfire.util.stax.FragmentStreamReader;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class JDOMEndpoint
     implements ChannelEndpoint

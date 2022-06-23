@@ -1,7 +1,7 @@
 package org.codehaus.xfire.xmpp;
 
-import org.jdom.Document;
-import org.jdom.output.XMLOutputter;
+import org.jdom2.Document;
+import org.jdom2.output.XMLOutputter;
 import org.jivesoftware.smack.packet.IQ;
 
 /**

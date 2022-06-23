@@ -3,8 +3,8 @@ package org.codehaus.xfire.addressing;
 import org.codehaus.xfire.soap.Soap11;
 import org.codehaus.xfire.test.AbstractXFireTest;
 import org.codehaus.xfire.util.jdom.StaxBuilder;
-import org.jdom.Document;
-import org.jdom.Element;
+import org.jdom2.Document;
+import org.jdom2.Element;
 
 public class WSATest
     extends AbstractXFireTest

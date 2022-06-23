@@ -19,9 +19,9 @@ import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.binding.ObjectServiceFactory;
 import org.codehaus.xfire.transport.TransportManager;
 import org.codehaus.xfire.wsdl11.builder.WSDLBuilder;
-import org.jdom.Content;
-import org.jdom.Element;
-import org.jdom.input.DOMBuilder;
+import org.jdom2.Content;
+import org.jdom2.Element;
+import org.jdom2.input.DOMBuilder;
 import org.w3c.dom.Document;
 
 public class JaxbWSDLBuilder

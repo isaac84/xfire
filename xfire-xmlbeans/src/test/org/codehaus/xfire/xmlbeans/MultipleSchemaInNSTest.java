@@ -3,7 +3,7 @@ package org.codehaus.xfire.xmlbeans;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.wsdl.AbstractWSDL;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * Tests that we can handle multiple schemas within the same namespace.

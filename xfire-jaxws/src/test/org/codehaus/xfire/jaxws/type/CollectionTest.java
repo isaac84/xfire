@@ -8,7 +8,7 @@ import org.codehaus.xfire.jaxws.JAXWSServiceFactory;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.util.LoggingHandler;
 import org.codehaus.xfire.util.dom.DOMOutHandler;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class CollectionTest extends AbstractXFireAegisTest {
 

@@ -8,7 +8,7 @@ import org.codehaus.xfire.soap.Soap11;
 import org.codehaus.xfire.soap.SoapVersion;
 import org.codehaus.xfire.soap.SoapVersionFactory;
 import org.codehaus.xfire.transport.Channel;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 public abstract class AbstractMessage
 {

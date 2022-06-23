@@ -10,7 +10,7 @@ import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.service.binding.ObjectServiceFactory;
 import org.codehaus.xfire.service.invoker.BeanInvoker;
 import org.codehaus.xfire.test.AbstractXFireTest;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 import xfire.inheritance.BaseUser;
 import xfire.inheritance2.Employee;

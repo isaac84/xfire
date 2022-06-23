@@ -16,7 +16,7 @@ import org.codehaus.xfire.gen.SchemaSupport;
 import org.codehaus.xfire.service.MessagePartInfo;
 import org.codehaus.xfire.service.binding.BindingProvider;
 import org.codehaus.xfire.xmlbeans.XmlBeansTypeRegistry;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 import com.sun.codemodel.JClass;
 import com.sun.codemodel.JExpr;

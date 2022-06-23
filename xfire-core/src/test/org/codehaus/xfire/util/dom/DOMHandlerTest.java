@@ -3,7 +3,7 @@ package org.codehaus.xfire.util.dom;
 import org.codehaus.xfire.service.EchoImpl;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.test.AbstractXFireTest;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class DOMHandlerTest
         extends AbstractXFireTest

@@ -13,7 +13,7 @@ import org.codehaus.xfire.util.jdom.JDOMEndpoint;
 import org.codehaus.xfire.util.jdom.JDOMSerializer;
 import org.codehaus.xfire.util.jdom.StaxBuilder;
 import org.codehaus.xfire.wsdl.WSDLWriter;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * @author <a href="mailto:dan@envoisolutions.com">Dan Diephouse</a>

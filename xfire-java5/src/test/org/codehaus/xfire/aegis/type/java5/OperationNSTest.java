@@ -13,7 +13,7 @@ import org.codehaus.xfire.annotations.AnnotationServiceFactory;
 import org.codehaus.xfire.annotations.jsr181.Jsr181WebAnnotations;
 import org.codehaus.xfire.service.Service;
 import org.codehaus.xfire.soap.SoapConstants;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 public class OperationNSTest
     extends AbstractXFireAegisTest

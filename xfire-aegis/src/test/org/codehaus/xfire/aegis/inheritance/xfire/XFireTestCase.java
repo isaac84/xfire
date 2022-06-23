@@ -15,7 +15,7 @@ import org.codehaus.xfire.aegis.inheritance.ws2.common.pack2.ContentBean2;
 import org.codehaus.xfire.aegis.inheritance.ws2.impl.WS2Impl;
 import org.codehaus.xfire.server.http.XFireHttpServer;
 import org.codehaus.xfire.test.AbstractXFireTest;
-import org.jdom.Document;
+import org.jdom2.Document;
 
 /**
  * <br/>

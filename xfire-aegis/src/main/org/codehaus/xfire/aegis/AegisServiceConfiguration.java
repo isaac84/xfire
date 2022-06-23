@@ -10,7 +10,7 @@ import org.codehaus.xfire.service.OperationInfo;
 import org.codehaus.xfire.service.ServiceInfo;
 import org.codehaus.xfire.service.binding.DefaultServiceConfiguration;
 import org.codehaus.xfire.service.binding.ObjectServiceFactory;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 /**
  * @author <a href="mailto:tsztelak@gmail.com">Tomasz Sztelak</a>

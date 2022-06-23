@@ -51,7 +51,7 @@ import org.codehaus.xfire.soap.SoapConstants;
 import org.codehaus.xfire.transport.Channel;
 import org.codehaus.xfire.util.Resolver;
 import org.codehaus.xfire.util.stax.DOMStreamWriter;
-import org.jdom.Element;
+import org.jdom2.Element;
 import org.xml.sax.SAXException;
 
 
