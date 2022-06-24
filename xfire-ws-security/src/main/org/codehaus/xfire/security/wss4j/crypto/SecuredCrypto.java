@@ -1,16 +1,13 @@
 package org.codehaus.xfire.security.wss4j.crypto;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.ws.security.components.crypto.CredentialException;
-import org.apache.ws.security.components.crypto.Merlin;
-import org.apache.ws.security.util.Loader;
+import org.apache.wss4j.common.ext.WSSecurityException;
+import org.apache.wss4j.common.crypto.Merlin;
 import org.codehaus.xfire.util.ClassLoaderUtils;
 
 /**
@@ -25,15 +22,15 @@ public class SecuredCrypto extends Merlin {
 
 	private AbstractDecrypter decrypter;
 
-	public SecuredCrypto(Properties props) throws CredentialException,
+	public SecuredCrypto(Properties props) throws WSSecurityException,
 			IOException {
-		super(props);
+		super(props, SecuredCrypto.class.getClassLoader(), null);
 	}
 
 	public SecuredCrypto(Properties props, ClassLoader cl)
-			throws CredentialException, IOException {
-		super(null, cl);
-		// Ugly Ctrl+c/ctrl+v from merlin code
+			throws WSSecurityException, IOException {
+	    super();
+		
 		if (props == null) {
 			return;
 		}
@@ -46,37 +43,7 @@ public class SecuredCrypto extends Merlin {
 		
 		properties = decryptProperties(props);
 		
-		String location = this.properties
-				.getProperty("org.apache.ws.security.crypto.merlin.file");
-
-		InputStream is = null;
-		java.net.URL url = Loader.getResource(cl, location);
-		if (url != null) {
-			is = url.openStream();
-		} else {
-			is = new java.io.FileInputStream(location);
-		}
-
-		/**
-		 * If we don't find it, then look on the file system.
-		 */
-		if (is == null) {
-			try {
-				is = new FileInputStream(location);
-			} catch (Exception e) {
-				throw new CredentialException(3, "proxyNotFound",
-						new Object[] { location });
-			}
-		}
-
-		/**
-		 * Load the keystore
-		 */
-		try {
-			load(is);
-		} finally {
-			is.close();
-		}
+		loadProperties(properties, cl, null);
 	}
 
 	/**

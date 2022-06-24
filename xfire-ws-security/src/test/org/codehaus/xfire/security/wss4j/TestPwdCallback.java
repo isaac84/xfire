@@ -8,7 +8,7 @@ import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
 import javax.security.auth.callback.UnsupportedCallbackException;
 
-import org.apache.ws.security.WSPasswordCallback;
+import org.apache.wss4j.common.ext.WSPasswordCallback;
 
 public class TestPwdCallback
     implements CallbackHandler
@@ -29,7 +29,7 @@ public class TestPwdCallback
         {
             WSPasswordCallback pc = (WSPasswordCallback) callbacks[i];
 
-            String pass = (String) passwords.get(pc.getIdentifer());
+            String pass = (String) passwords.get(pc.getIdentifier());
             if (pass != null)
             {
                 pc.setPassword(pass);

@@ -7,8 +7,8 @@ import java.util.Map;
 
 import javax.xml.namespace.QName;
 
-import org.apache.ws.security.WSConstants;
-import org.apache.ws.security.handler.WSHandler;
+import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.dom.handler.WSHandler;
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.fault.XFireFault;
 import org.codehaus.xfire.handler.Handler;

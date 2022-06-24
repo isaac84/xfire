@@ -1,7 +1,7 @@
 package org.codehaus.xfire.security.wss4j;
 
-import org.apache.ws.security.WSConstants;
-import org.apache.ws.security.handler.WSHandlerConstants;
+import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.dom.handler.WSHandlerConstants;
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.exchange.OutMessage;
 import org.codehaus.xfire.util.dom.DOMOutHandler;
@@ -56,7 +56,7 @@ public class WSS4JOutHandlerTest
         ctx.setProperty(WSHandlerConstants.ENC_PROP_FILE, "META-INF/xfire/outsecurity.properties");
         ctx.setProperty(WSHandlerConstants.USER, "myAlias");
         ctx.setProperty("password", "myAliasPassword");
-        ctx.setProperty(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PASSWORD_TEXT);
+        ctx.setProperty(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
         
         handler.invoke(ctx);
         
@@ -81,7 +81,7 @@ public class WSS4JOutHandlerTest
         ctx.setProperty(WSHandlerConstants.SIG_PROP_FILE, "META-INF/xfire/outsecurity.properties");
         ctx.setProperty(WSHandlerConstants.USER, "myAlias");
         ctx.setProperty("password", "myAliasPassword");
-        ctx.setProperty(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PASSWORD_TEXT);
+        ctx.setProperty(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
         
         handler.invoke(ctx);
         
@@ -107,7 +107,7 @@ public class WSS4JOutHandlerTest
         handler.setProperty(WSHandlerConstants.SIG_PROP_FILE, "META-INF/xfire/outsecurity.properties");
         ctx.setProperty(WSHandlerConstants.USER, "myAlias");
         ctx.setProperty("password", "myAliasPassword");
-        handler.setProperty(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PASSWORD_TEXT);
+        handler.setProperty(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
         
         handler.invoke(ctx);
         

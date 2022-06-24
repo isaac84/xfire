@@ -8,8 +8,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 
-import org.apache.ws.security.WSConstants;
-import org.apache.ws.security.handler.WSHandlerConstants;
+import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.dom.handler.WSHandlerConstants;
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.exchange.InMessage;
 import org.codehaus.xfire.exchange.OutMessage;
@@ -47,7 +47,7 @@ public class WSS4JInOutTest
         ctx.setProperty(WSHandlerConstants.SIG_PROP_FILE, "META-INF/xfire/outsecurity.properties");
         ctx.setProperty(WSHandlerConstants.USER, "myAlias");
         ctx.setProperty("password", "myAliasPassword");
-        ctx.setProperty(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PASSWORD_TEXT);
+        ctx.setProperty(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
         
         handler.invoke(ctx);
         printNode(doc);

@@ -1,6 +1,7 @@
 package org.codehaus.xfire.security.wss4j;
 
-import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.Vector;
 
@@ -8,14 +9,14 @@ import javax.security.auth.callback.CallbackHandler;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.ws.security.WSConstants;
-import org.apache.ws.security.WSSecurityEngineResult;
-import org.apache.ws.security.WSSecurityException;
-import org.apache.ws.security.handler.RequestData;
-import org.apache.ws.security.handler.WSHandlerConstants;
-import org.apache.ws.security.handler.WSHandlerResult;
-import org.apache.ws.security.message.token.Timestamp;
-import org.apache.ws.security.util.WSSecurityUtil;
+import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.dom.engine.WSSecurityEngine;
+import org.apache.wss4j.dom.engine.WSSecurityEngineResult;
+import org.apache.wss4j.common.ext.WSSecurityException;
+import org.apache.wss4j.dom.handler.RequestData;
+import org.apache.wss4j.dom.handler.WSHandlerConstants;
+import org.apache.wss4j.dom.handler.WSHandlerResult;
+import org.apache.wss4j.dom.util.WSSecurityUtil;
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.XFireRuntimeException;
 import org.codehaus.xfire.exchange.AbstractMessage;
@@ -37,8 +38,10 @@ public class WSS4JInHandler
 {
     protected static final Log log = LogFactory.getLog(WSS4JInHandler.class.getName());
 
-    private static Log tlog = LogFactory.getLog("org.apache.ws.security.TIME");
+    private static Log tlog = LogFactory.getLog("org.apache.wss4j.dom.TIME");
 
+    private WSSecurityEngine secEngine;
+    
     public WSS4JInHandler()
     {
         super();
@@ -46,6 +49,8 @@ public class WSS4JInHandler
         setPhase(Phase.PARSE);
         getBefore().add(ReadHeadersHandler.class.getName());
         getAfter().add(DOMInHandler.class.getName());
+        
+        secEngine = new WSSecurityEngine();
     }
     
     
@@ -81,7 +86,7 @@ public class WSS4JInHandler
         {
             reqData.setMsgContext(msgContext);
 
-            Vector actions = new Vector();
+            List<Integer> actions = new ArrayList<Integer>();
             String action = null;
             if ((action = (String) getOption(WSHandlerConstants.ACTION)) == null)
             {
@@ -93,7 +98,7 @@ public class WSS4JInHandler
                 throw new XFireRuntimeException("WSS4JInHandler: No action defined");
             }
 
-            int doAction = WSSecurityUtil.decodeAction(action, actions);
+            actions = WSSecurityUtil.decodeAction(action);
 
             String actor = (String) getOption(WSHandlerConstants.ACTOR);
 
@@ -117,18 +122,18 @@ public class WSS4JInHandler
              * need a password.
              */
             CallbackHandler cbHandler = null;
-            if ((doAction & (WSConstants.ENCR | WSConstants.UT)) != 0)
+            if (actions.contains(WSConstants.ENCR) || actions.contains(WSConstants.UT))
             {
-                cbHandler = getPasswordCB(reqData);
+                cbHandler = getPasswordCallbackHandler(reqData);
             }
 
             /*
              * Get and check the Signature specific parameters first because
              * they may be used for encryption too.
              */
-            doReceiverAction(doAction, reqData);
+            doReceiverAction(actions, reqData);
 
-            Vector wsResult = null;
+            WSHandlerResult wsResult = null;
             if (tlog.isDebugEnabled())
             {
                 t1 = System.currentTimeMillis();
@@ -137,7 +142,7 @@ public class WSS4JInHandler
             try
             {
                 wsResult = secEngine.processSecurityHeader(doc, actor, cbHandler, reqData
-                        .getSigCrypto(), reqData.getDecCrypto());
+                        .getSigVerCrypto(), reqData.getDecCrypto());
             }
             catch (WSSecurityException ex)
             {
@@ -153,7 +158,7 @@ public class WSS4JInHandler
 
             if (wsResult == null)
             { // no security header found
-                if (doAction == WSConstants.NO_SECURITY)
+                if (actions.contains(WSConstants.NO_SECURITY))
                 {
                     return;
                 }
@@ -166,74 +171,15 @@ public class WSS4JInHandler
                 }
             }
 
-            if (reqData.getWssConfig().isEnableSignatureConfirmation())
+            if (reqData.isEnableSignatureConfirmation())
             {
                 checkSignatureConfirmation(reqData, wsResult);
             }
 
             /*
-             * Now we can check the certificate used to sign the message. In the
-             * following implementation the certificate is only trusted if
-             * either it itself or the certificate of the issuer is installed in
-             * the keystore.
-             * 
-             * Note: the method verifyTrust(X509Certificate) allows custom
-             * implementations with other validation algorithms for subclasses.
-             */
-
-            // Extract the signature action result from the action vector
-            WSSecurityEngineResult actionResult = WSSecurityUtil
-                    .fetchActionResult(wsResult, WSConstants.SIGN);
-
-            if (actionResult != null)
-            {
-                X509Certificate returnCert = actionResult.getCertificate();
-
-                if (returnCert != null)
-                {
-                    if (!verifyTrust(returnCert, reqData))
-                    {
-                        log.error("WSS4JInHandler: The certificate used for the signature is not trusted");
-                        throw new XFireFault(
-                                "WSS4JInHandler: The certificate used for the signature is not trusted",
-                                XFireFault.SENDER);
-                    }
-                }
-            }
-
-            /*
-             * Perform further checks on the timestamp that was transmitted in
-             * the header. In the following implementation the timestamp is
-             * valid if it was created after (now-ttl), where ttl is set on
-             * server side, not by the client.
-             * 
-             * Note: the method verifyTimestamp(Timestamp) allows custom
-             * implementations with other validation algorithms for subclasses.
-             */
-
-            // Extract the timestamp action result from the action vector
-            actionResult = WSSecurityUtil.fetchActionResult(wsResult, WSConstants.TS);
-
-            if (actionResult != null)
-            {
-                Timestamp timestamp = actionResult.getTimestamp();
-
-                if (timestamp != null)
-                {
-                    if (!verifyTimestamp(timestamp, decodeTimeToLive(reqData)))
-                    {
-                        log.error("WSS4JInHandler: The timestamp could not be validated");
-                        throw new XFireFault(
-                                "WSS4JInHandler: The timestamp could not be validated",
-                                XFireFault.SENDER);
-                    }
-                }
-            }
-
-            /*
              * now check the security actions: do they match, in right order?
              */
-            if (!checkReceiverResults(wsResult, actions))
+            if (!checkReceiverResults(wsResult.getResults(), actions))
             {
                 log.error("WSS4JInHandler: security processing failed (actions mismatch)");
                 throw new XFireFault(
@@ -245,13 +191,13 @@ public class WSS4JInHandler
              * All ok up to this point. Now construct and setup the security
              * result structure. The service may fetch this and check it.
              */
-            Vector results = null;
-            if ((results = (Vector) msgContext.getProperty(WSHandlerConstants.RECV_RESULTS)) == null)
+            List<WSHandlerResult> results = null;
+            if ((results = (List<WSHandlerResult>) msgContext.getProperty(WSHandlerConstants.RECV_RESULTS)) == null)
             {
-                results = new Vector();
+                results = new ArrayList<WSHandlerResult>();
                 msgContext.setProperty(WSHandlerConstants.RECV_RESULTS, results);
             }
-            WSHandlerResult rResult = new WSHandlerResult(actor, wsResult);
+            WSHandlerResult rResult = new WSHandlerResult(actor, wsResult.getResults(), wsResult.getActionResults());
             results.add(0, rResult);
             if (tlog.isDebugEnabled())
             {
@@ -272,7 +218,6 @@ public class WSS4JInHandler
         }
         finally
         {
-            reqData.clear();
             reqData = null;
         }
     }

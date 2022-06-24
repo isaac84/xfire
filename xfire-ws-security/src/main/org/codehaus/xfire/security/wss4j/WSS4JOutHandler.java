@@ -1,15 +1,16 @@
 package org.codehaus.xfire.security.wss4j;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.ws.security.WSConstants;
-import org.apache.ws.security.WSSecurityException;
-import org.apache.ws.security.handler.RequestData;
-import org.apache.ws.security.handler.WSHandlerConstants;
-import org.apache.ws.security.util.WSSecurityUtil;
+import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.common.ext.WSSecurityException;
+import org.apache.wss4j.dom.handler.HandlerAction;
+import org.apache.wss4j.dom.handler.RequestData;
+import org.apache.wss4j.dom.handler.WSHandlerConstants;
+import org.apache.wss4j.dom.util.WSSecurityUtil;
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.XFireRuntimeException;
 import org.codehaus.xfire.exchange.OutMessage;
@@ -24,7 +25,7 @@ public class WSS4JOutHandler
 {
     protected static final Log log = LogFactory.getLog(WSS4JOutHandler.class.getName());
 
-    private static Log tlog = LogFactory.getLog("org.apache.ws.security.TIME");
+    private static Log tlog = LogFactory.getLog("org.apache.wss4j.dom.TIME");
 
     public WSS4JOutHandler()
     {
@@ -70,15 +71,14 @@ public class WSS4JOutHandler
             /*
              * Get the action first.
              */
-            Vector actions = new Vector();
             String action = getString(WSHandlerConstants.ACTION, mc);
             if (action == null)
             {
                 throw new XFireRuntimeException("WSDoAllSender: No action defined");
             }
             
-            int doAction = WSSecurityUtil.decodeAction(action, actions);
-            if (doAction == WSConstants.NO_SECURITY)
+            List<Integer> actions = WSSecurityUtil.decodeAction(action);
+            if (actions.contains(WSConstants.NO_SECURITY))
             {
                 return;
             }
@@ -102,7 +102,9 @@ public class WSS4JOutHandler
              * functions. No need to do it for encryption only. Check if
              * username is available and then get a passowrd.
              */
-            if ((doAction & (WSConstants.SIGN | WSConstants.UT | WSConstants.UT_SIGN)) != 0)
+            if (actions.contains(WSConstants.SIGN) || 
+                    actions.contains(WSConstants.UT) || 
+                    actions.contains(WSConstants.UT_SIGN))
             {
                 /*
                  * We need a username - if none throw an XFireFault. For
@@ -116,7 +118,7 @@ public class WSS4JOutHandler
             }
             if (doDebug)
             {
-                log.debug("Action: " + doAction);
+                log.debug("Action: " + actions);
                 log.debug("Actor: " + reqData.getActor());
             }
             /*
@@ -155,7 +157,8 @@ public class WSS4JOutHandler
                 t1 = System.currentTimeMillis();
             }
 
-            doSenderAction(doAction, doc, reqData, actions, AbstractBinding.isClientModeOn(mc));
+            List<HandlerAction> handlerActions = WSSecurityUtil.decodeHandlerAction(action, null);
+            doSenderAction(doc, reqData, handlerActions, AbstractBinding.isClientModeOn(mc));
 
             if (tlog.isDebugEnabled())
             {
@@ -181,7 +184,6 @@ public class WSS4JOutHandler
         }
         finally
         {
-            reqData.clear();
             reqData = null;
         }
     }

@@ -2,8 +2,8 @@ package org.codehaus.xfire.security.wss4j;
 
 import java.lang.reflect.Proxy;
 
-import org.apache.ws.security.WSConstants;
-import org.apache.ws.security.handler.WSHandlerConstants;
+import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.dom.handler.WSHandlerConstants;
 import org.codehaus.xfire.aegis.AbstractXFireAegisTest;
 import org.codehaus.xfire.client.Client;
 import org.codehaus.xfire.client.XFireProxy;
@@ -45,7 +45,7 @@ public class RoundTripTest
         wsOut.setProperty(WSHandlerConstants.ENC_PROP_FILE, "META-INF/xfire/outsecurity.properties");
         wsOut.setProperty(WSHandlerConstants.USER, "myAlias");
         wsOut.setProperty("password", "myAliasPassword");
-        wsOut.setProperty(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PASSWORD_TEXT);
+        wsOut.setProperty(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
         wsOut.setProperty(WSHandlerConstants.PW_CALLBACK_CLASS, TestPwdCallback.class.getName());
         service.addOutHandler(wsOut);
         
