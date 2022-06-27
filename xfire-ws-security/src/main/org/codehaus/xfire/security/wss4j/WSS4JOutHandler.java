@@ -60,6 +60,7 @@ public class WSS4JOutHandler
         }
 
         RequestData reqData = new RequestData();
+        reqData.setWssConfig(getConfig());
 
         reqData.setMsgContext(mc);
         /*

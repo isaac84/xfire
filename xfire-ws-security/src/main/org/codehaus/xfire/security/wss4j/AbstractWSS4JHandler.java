@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.xml.namespace.QName;
 
 import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.dom.engine.WSSConfig;
 import org.apache.wss4j.dom.handler.WSHandler;
 import org.codehaus.xfire.MessageContext;
 import org.codehaus.xfire.fault.XFireFault;
@@ -109,5 +110,12 @@ public abstract class AbstractWSS4JHandler extends WSHandler implements Handler
     public void setBefore(List before)
     {
         this.before = before;
+    }
+    
+    public WSSConfig getConfig() {
+        WSSConfig config = WSSConfig.getNewInstance();
+        config.setValidator(WSConstants.USERNAME_TOKEN, UsernameTokenValidator.class);
+        
+        return config;
     }
 }

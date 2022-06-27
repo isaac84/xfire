@@ -51,6 +51,7 @@ public class WSS4JInHandler
         getAfter().add(DOMInHandler.class.getName());
         
         secEngine = new WSSecurityEngine();
+        secEngine.setWssConfig(getConfig());
     }
     
     
@@ -78,6 +79,7 @@ public class WSS4JInHandler
         }
 
         RequestData reqData = new RequestData();
+        reqData.setWssConfig(getConfig());
         /*
          * The overall try, just to have a finally at the end to perform some
          * housekeeping.
