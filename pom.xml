@@ -142,14 +142,14 @@
     <repository>
       <id>apache-snapshots</id>
       <name>Snapshot repository</name>
-      <url>http://people.apache.org/maven-snapshot-repository/</url>
+      <url>https://people.apache.org/maven-snapshot-repository/</url>
     </repository>
   </repositories>
   <pluginRepositories>
     <pluginRepository>
       <id>snapshot</id>
       <name>Snapshot repository</name>
-      <url>http://snapshots.maven.codehaus.org/maven2/</url>
+      <url>https://snapshots.maven.codehaus.org/maven2/</url>
     </pluginRepository>
   </pluginRepositories>
   <dependencies>
